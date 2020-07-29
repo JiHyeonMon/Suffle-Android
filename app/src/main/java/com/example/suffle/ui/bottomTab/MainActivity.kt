@@ -1,11 +1,11 @@
-package com.example.suffle
+package com.example.suffle.ui.bottomTab
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.suffle.R
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -45,7 +45,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        act_main_viewpager.adapter = BottomTabAdapter(supportFragmentManager, 4)
+        act_main_viewpager.adapter =
+            BottomTabAdapter(
+                supportFragmentManager,
+                4
+            )
 
         act_main_viewpager.offscreenPageLimit = 3
         act_main_viewpager.currentItem = 0

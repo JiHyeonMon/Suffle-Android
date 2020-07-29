@@ -1,10 +1,11 @@
-package com.example.suffle
+package com.example.suffle.ui.Home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.suffle.R
 
 class HomeFragment : Fragment() {
 

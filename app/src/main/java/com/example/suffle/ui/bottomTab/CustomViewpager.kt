@@ -1,4 +1,4 @@
-package com.example.suffle
+package com.example.suffle.ui.bottomTab
 
 import android.content.Context
 import android.util.AttributeSet
