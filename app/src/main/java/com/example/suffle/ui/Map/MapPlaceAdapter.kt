@@ -16,7 +16,7 @@ class MapPlaceAdapter (private val context: Context, private val clickListener: 
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MapPlaceViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_frag_home_list, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_frag_home_linear_list, parent, false)
         return MapPlaceViewHolder(view, clickListener)
     }
 

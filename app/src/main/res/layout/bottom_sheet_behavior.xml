@@ -90,6 +90,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        tools:listitem="@layout/item_frag_home_list"/>
+        tools:listitem="@layout/item_frag_home_linear_list"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

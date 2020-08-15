@@ -298,7 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="17dp"
-                    android:src="@drawable/icon_layout"
+                    android:src="@drawable/icon_linear_layout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -319,9 +319,7 @@
                 android:id="@+id/frag_home_rv_place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_frag_home_list" />
+                android:layout_marginHorizontal="15dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
