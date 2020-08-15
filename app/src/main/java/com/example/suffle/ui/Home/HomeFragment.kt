@@ -39,6 +39,35 @@ class HomeFragment : Fragment() {
         frag_home_rv_place.adapter = placeAdapter
         frag_home_rv_place.setLayoutManager(LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
+
+        frag_home_btn_filter_all.setOnClickListener {
+            frag_home_btn_filter_all_bar.visibility = View.VISIBLE
+            frag_home_btn_filter_food_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
+        }
+
+        frag_home_btn_filter_food.setOnClickListener {
+            frag_home_btn_filter_all_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_food_bar.visibility = View.VISIBLE
+            frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
+        }
+
+        frag_home_btn_filter_cafe.setOnClickListener {
+            frag_home_btn_filter_all_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_food_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_cafe_bar.visibility = View.VISIBLE
+            frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
+        }
+
+        frag_home_btn_filter_drink.setOnClickListener {
+            frag_home_btn_filter_all_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_food_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
+            frag_home_btn_filter_drink_bar.visibility = View.VISIBLE
+        }
+
         loadDatas()
 
     }
