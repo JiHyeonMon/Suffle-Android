@@ -14,17 +14,7 @@
         sothree:umanoPanelHeight="189dp"
         sothree:umanoShadowHeight="0dp">
 
-        <RelativeLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:id="@+id/map_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-            </RelativeLayout>
-        </RelativeLayout>
+        <include layout="@layout/fragment_map_content"/>
 
         <include layout="@layout/bottom_sheet_behavior"/>
 
