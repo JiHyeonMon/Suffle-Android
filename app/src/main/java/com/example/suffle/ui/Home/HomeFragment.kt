@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    val datas = mutableListOf<PlaceData>()
+    val placeDatas = mutableListOf<PlaceData>()
     var tmp = 0
     lateinit var placeLinearAdapter: PlaceLinearAdapter
     lateinit var placeGridAdapter: PlaceGridAdapter
@@ -28,13 +27,12 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        datas.clear()
+        placeDatas.clear()
 
         //Adapter Initialization
         placeLinearAdapter = PlaceLinearAdapter(view.context,
@@ -58,7 +56,7 @@ class HomeFragment : Fragment() {
         frag_home_btn_layout.setOnClickListener {
             if(tmp == 0){
                 tmp = 1
-                datas.clear()
+                placeDatas.clear()
                 frag_home_btn_layout.setImageResource(R.drawable.icon_linear_layout)
                 frag_home_rv_place.adapter = placeLinearAdapter
                 frag_home_rv_place.layoutManager =
@@ -66,7 +64,7 @@ class HomeFragment : Fragment() {
                 loadDatas()
             }else{
                 tmp = 0
-                datas.clear()
+                placeDatas.clear()
                 frag_home_btn_layout.setImageResource(R.drawable.icon_grid_layout)
                 frag_home_rv_place.layoutManager =
                     GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
@@ -112,7 +110,7 @@ class HomeFragment : Fragment() {
     private fun loadDatas(){
 
 
-        datas.apply {
+        placeDatas.apply {
             add(
                 PlaceData(
                     img_place = "https://lh3.googleusercontent.com/proxy/0fSPDWXT8LvpXQsFwlCGm4Amkd3gw-Z-p3v1q-RsrUW1Z1kj7JOpuzOCzbn7Uu_cmqnPTJE1hAXzO2st9vCczfUKqXJiKnhCe1QNHMXT1N0y6C3Nic6_gAazhK2ipj9JsT5DkcSAfYWUIKuKP8riygED8Fzy-N3rHjnTX7Z8ltQJX87A9GPfL6PVW2Ez4_3dZTEZOuq6GRk1Sc50VAtQYqR6h2HpwQv9wJegSKuvmjGYC0Q1tJBQwXo4TjvBqKYkdfOBpx8ZkRZn-5El1i9trdHEF1ne",
@@ -156,10 +154,10 @@ class HomeFragment : Fragment() {
         }
 
         if(frag_home_rv_place.adapter == placeLinearAdapter){
-            placeLinearAdapter.datas = datas
+            placeLinearAdapter.datas = placeDatas
             placeLinearAdapter.notifyDataSetChanged()
         }else{
-            placeGridAdapter.datas = datas
+            placeGridAdapter.datas = placeDatas
             placeGridAdapter.notifyDataSetChanged()
         }
 

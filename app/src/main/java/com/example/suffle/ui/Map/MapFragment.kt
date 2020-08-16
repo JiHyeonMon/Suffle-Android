@@ -18,8 +18,9 @@ import net.daum.mf.map.api.MapView
 class MapFragment : Fragment() {
 
     val placeDatas = mutableListOf<PlaceData>()
-    lateinit var mapPlaceAdapter: MapPlaceAdapter
     val personDatas = mutableListOf<PersonListData>()
+
+    lateinit var mapPlaceAdapter: MapPlaceAdapter
     lateinit var mapPersonAdapter: MapPersonAdapter
 
     override fun onCreateView(
@@ -27,17 +28,28 @@ class MapFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        val view = inflater.inflate(R.layout.fragment_map, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        placeDatas.clear()
+        personDatas.clear()
         //지도 띄우기
 //        val mapView = MapView(activity)
 //        val mapViewContainer = map_view as ViewGroup
 //        mapViewContainer.addView(mapView)
 
+        //Adapter Initialization
+        mapPersonAdapter = MapPersonAdapter(view.context,
+            object : MapPersonViewHolder.onClickListener{
+                override fun onClickItem(position: Int) {
+                    Toast.makeText(context, personDatas[position].txt_personName, Toast.LENGTH_SHORT).show()
+                }
+
+            })
         mapPlaceAdapter = MapPlaceAdapter(view.context,
             object : MapPlaceViewHolder.onClickListener {
                 override fun onClickItem(position: Int) {
@@ -45,16 +57,13 @@ class MapFragment : Fragment() {
                 }
             })
 
-        mapPersonAdapter = MapPersonAdapter(view.context,
-        object : MapPersonViewHolder.onClickListener{
-            override fun onClickItem(position: Int) {
-                Toast.makeText(context, personDatas[position].txt_personName, Toast.LENGTH_SHORT).show()
-            }
-
-        })
+        //Attach adapter to Recyclerview
+        bottom_sheet_rv_person.adapter = mapPersonAdapter
+        bottom_sheet_rv_person.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         bottom_sheet_rv_place.adapter = mapPlaceAdapter
-        bottom_sheet_rv_place.setLayoutManager(LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        bottom_sheet_rv_place.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
 
         loadDatas1()
         loadDatas2()
@@ -64,35 +73,26 @@ class MapFragment : Fragment() {
         personDatas.apply {
             add(
                 PersonListData(
-                    img_person = "R.drawable.kakao_circle1",
+                    img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
                     txt_personName = "홍길동"
                 )
             )
             add(
                 PersonListData(
-                    img_person = "R.drawable.kakao_circle2",
-                    txt_personName = "홍길동"
+                    img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
+                    txt_personName = "홍길동m"
                 )
             )
             add(
                 PersonListData(
-                    img_person = "R.drawable.kakao_circle3",
-                    txt_personName = "홍길동"
-                )
-            )
-            add(
-                PersonListData(
-                    img_person = "R.drawable.kakao_circle4",
-                    txt_personName = "홍길동"
-                )
-            )
-            add(
-                PersonListData(
-                    img_person = "R.drawable.kakao_circle5",
-                    txt_personName = "홍길동"
+                    img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
+                    txt_personName = "홍길동;"
                 )
             )
         }
+
+        mapPersonAdapter.datas = personDatas
+        mapPersonAdapter.notifyDataSetChanged()
 
     }
 
@@ -105,8 +105,8 @@ class MapFragment : Fragment() {
                     txt_place = "라라브레드",
                     img_bookmark = false,
                     txt_distance = "1.5km",
-                    txt_thumbUp = "김주은외 4,345",
-                    txt_thumbDown = "55"
+                    txt_thumbUp = "김지현외 4,345",
+                    txt_thumbDown = "34"
                 )
             )
             add(

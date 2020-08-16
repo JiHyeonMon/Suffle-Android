@@ -18,7 +18,7 @@ class MapPersonAdapter (private val context: Context, private val clickListener:
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MapPersonViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_frag_home_linear_list, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_frag_map_circle, parent, false)
         return MapPersonViewHolder(view, clickListener)
     }
 
@@ -33,15 +33,13 @@ class MapPersonAdapter (private val context: Context, private val clickListener:
 
 }
 
-class MapPersonViewHolder(itemview: View, val clickListener: onClickListener) : RecyclerView.ViewHolder(itemview){
-    val img_person = itemview.findViewById<ImageView>(R.id.item_frag_map_img)
+class MapPersonViewHolder(itemview: View, private val clickListener: onClickListener) : RecyclerView.ViewHolder(itemview){
+    val img_person= itemview.findViewById<ImageView>(R.id.item_frag_map_circle_img)
     val txt_personName = itemView.findViewById<TextView>(R.id.item_frag_circle_txt)
-
 
     fun bind(personData: PersonListData) {
         txt_personName.text = personData.txt_personName
-        Glide.with(itemView).load(R.drawable.kakao_circle1).circleCrop().centerCrop().into(img_person);
-
+        Glide.with(itemView).load(personData.img_person).circleCrop().centerCrop().into(img_person);
     }
 
     init {
