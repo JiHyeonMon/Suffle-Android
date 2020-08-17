@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
 import com.example.suffle.data.PersonListData
 import com.example.suffle.data.PlaceData
+import com.sothree.slidinguppanel.ScrollableViewHelper
 import kotlinx.android.synthetic.main.bottom_sheet_behavior.*
+import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.fragment_map_content.*
 import net.daum.mf.map.api.MapView
 
@@ -34,13 +37,17 @@ class MapFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //setting sliding panel
+        sliding_layout.setDragView(R.layout.bottom_sheet_behavior)
+        sliding_layout.isNestedScrollingEnabled = true
 
         placeDatas.clear()
         personDatas.clear()
+
         //지도 띄우기
-//        val mapView = MapView(activity)
-//        val mapViewContainer = map_view as ViewGroup
-//        mapViewContainer.addView(mapView)
+        val mapView = MapView(activity)
+        val mapViewContainer = map_view as ViewGroup
+        mapViewContainer.addView(mapView)
 
         //Adapter Initialization
         mapPersonAdapter = MapPersonAdapter(view.context,
@@ -65,6 +72,15 @@ class MapFragment : Fragment() {
         bottom_sheet_rv_place.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
 
+        //
+        frag_map_btn_friend.setOnClickListener {
+            frag_map_btn_friend.setBackgroundResource(R.drawable.bg_faded_orange_round)
+            frag_map_btn_group.setBackgroundResource(R.drawable.bg_white_three_round)
+        }
+        frag_map_btn_group.setOnClickListener {
+            frag_map_btn_friend.setBackgroundResource(R.drawable.bg_white_three_round)
+            frag_map_btn_group.setBackgroundResource(R.drawable.bg_faded_orange_round)
+        }
         loadDatas1()
         loadDatas2()
     }
@@ -74,19 +90,19 @@ class MapFragment : Fragment() {
             add(
                 PersonListData(
                     img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
-                    txt_personName = "홍길동"
+                    txt_personName = "동원참치"
                 )
             )
             add(
                 PersonListData(
-                    img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
-                    txt_personName = "홍길동m"
+                    img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
+                    txt_personName = "강동원"
                 )
             )
             add(
                 PersonListData(
-                    img_person = "https://blog.kakaocdn.net/dn/bDfAQw/btqD2bD1qbY/KekKgYpWSAZCtsRjQC0kS0/img.jpg",
-                    txt_personName = "홍길동;"
+                    img_person = "https://i.pinimg.com/originals/c8/05/c7/c805c7ab8253e96982fa67757d580920.png",
+                    txt_personName = "박보검"
                 )
             )
         }
@@ -145,5 +161,7 @@ class MapFragment : Fragment() {
         mapPlaceAdapter.notifyDataSetChanged()
 
     }
+
+
 
 }
