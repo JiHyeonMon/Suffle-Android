@@ -34,7 +34,6 @@ class PlaceLinearAdapter (private val context: Context, private val clickListene
 
 class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) : RecyclerView.ViewHolder(itemview){
     val img_place = itemview.findViewById<ImageView>(R.id.img_place)
-
     val txt_placeName = itemView.findViewById<TextView>(R.id.txt_placeName)
     val txt_distance = itemView.findViewById<TextView>(R.id.txt_distance)
     val txt_thumbUp = itemView.findViewById<TextView>(R.id.txt_thumbUp)
@@ -42,7 +41,6 @@ class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) 
 
     fun bind(placeData: PlaceData) {
         Glide.with(itemView).load(placeData.img_place).into(img_place);
-
         txt_placeName.text = placeData.txt_place
         txt_distance.text = placeData.txt_distance
         txt_thumbUp.text = placeData.txt_thumbUp

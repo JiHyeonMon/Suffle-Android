@@ -45,7 +45,7 @@ class PlaceGridViewHolder(itemview: View, val clickListener: onClickListener) : 
 //        txt_distance.text = placeData.txt_distance
 //        txt_thumbUp.text = placeData.txt_thumbUp
 //        txt_thumbDown.text = placeData.txt_thumbDown
-        Glide.with(itemView).load(placeData.img_place).into(img_place);
+        Glide.with(itemView).load(placeData.img_place).into(img_place)
 
     }
 

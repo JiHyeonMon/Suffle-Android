@@ -2,14 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2"
+        app:srcCompat="@drawable/ic_badge"
+        android:layout_marginTop="87dp"
+        android:layout_marginLeft="16dp"/>
+
     <RelativeLayout
-        android:orientation="vertical"
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frag_map_const"
@@ -56,7 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/frag_map_const"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentBottom="true">
+
+        </RelativeLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

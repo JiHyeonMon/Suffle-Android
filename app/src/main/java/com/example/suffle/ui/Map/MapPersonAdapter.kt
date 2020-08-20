@@ -9,12 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.suffle.R
+import com.example.suffle.data.MarkerData
 import com.example.suffle.data.PersonListData
 
 
 class MapPersonAdapter (private val context: Context, private val clickListener: MapPersonViewHolder.onClickListener): RecyclerView.Adapter<MapPersonViewHolder>(){
 
     var datas = mutableListOf<PersonListData>()
+    var markerData = mutableListOf<MarkerData>()
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MapPersonViewHolder {
@@ -39,7 +41,8 @@ class MapPersonViewHolder(itemview: View, private val clickListener: onClickList
 
     fun bind(personData: PersonListData) {
         txt_personName.text = personData.txt_personName
-        Glide.with(itemView).load(personData.img_person).circleCrop().centerCrop().into(img_person);
+        Glide.with(itemView).load(personData.img_person).circleCrop().centerCrop().into(img_person)
+
     }
 
     init {
