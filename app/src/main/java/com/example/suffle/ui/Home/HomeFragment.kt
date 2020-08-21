@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
             })
 
         frag_home_rv_recommand.adapter = recommandAdapter
-        frag_home_rv_recommand.layoutManager = context?.let { CenterZoomLinearLayoutManager(it, 10f, 5f) }
+        frag_home_rv_recommand.layoutManager = context?.let { CenterZoomLinearLayoutManager(it, 20f, 7f) }
 
 //        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
 //        layoutManager.stackFromEnd = true

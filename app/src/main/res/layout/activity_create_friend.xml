@@ -24,6 +24,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="16dp"
             android:text="친구 추가"
+            android:fontFamily="@font/kopubworld_dotum_medium"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,6 +80,7 @@
                     android:gravity="center_horizontal"
                     android:lineSpacingExtra="6sp"
                     android:text="페이스북과 연동하기"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:textColor="@color/faded_orange"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView10"
@@ -103,6 +105,7 @@
                     android:gravity="center_horizontal"
                     android:lineSpacingExtra="6sp"
                     android:text="인스타그램과 연동하기"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:textColor="@color/faded_orange"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView12"
@@ -141,6 +144,7 @@
                 android:lineSpacingExtra="6sp"
                 android:lines="1"
                 android:text="친구 이름을 검색해보세요"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:textColor="@color/brownish_grey"
                 android:textSize="11sp" />
 
@@ -152,6 +156,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:text="추천 친구"
+            android:fontFamily="@font/kopubworld_dotum_light"
             android:textColor="@color/brownish_grey"
             android:textSize="9sp" />
 

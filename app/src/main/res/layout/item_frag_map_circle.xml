@@ -21,6 +21,7 @@
         android:layout_marginTop="4dp"
         android:lineSpacingExtra="4sp"
         android:text="수플레"
+        android:fontFamily="@font/kopubworld_dotum_light"
         android:textColor="@color/brownish_grey"
         android:textSize="9sp"
         app:layout_constraintEnd_toEndOf="parent"
