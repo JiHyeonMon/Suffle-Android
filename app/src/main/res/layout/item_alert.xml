@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    android:layout_marginTop="10dp"
+    android:elevation="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_alert_img"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/kakao_friend_sample"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/kopubworld_dotum_bold"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="친구 추가 알림"
+            android:textColor="#707070"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/item_alert_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_alert_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="장윤주"
+            android:textColor="#707070"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="님이 친구 요청을 보냈습니다."
+            android:textColor="#707070"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/item_alert_name"
+            app:layout_constraintTop_toTopOf="@+id/item_alert_name" />
+
+        <TextView
+            android:id="@+id/item_alert_delete"
+            android:layout_width="67dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_white_four_btn"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="삭제"
+            android:textColor="@color/brownish_grey"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/item_alert_name"
+            app:layout_constraintTop_toBottomOf="@+id/item_alert_name" />
+
+        <TextView
+            android:id="@+id/item_alert_allow"
+            android:layout_width="67dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_faded_orange_btn"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="친구 수락"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            app:layout_constraintStart_toEndOf="@+id/item_alert_delete"
+            app:layout_constraintTop_toTopOf="@+id/item_alert_delete" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

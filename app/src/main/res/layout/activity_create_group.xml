@@ -55,6 +55,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
             android:layout_marginTop="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,6 +115,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
             android:layout_marginTop="25dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -143,6 +145,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
             android:layout_marginTop="25dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Map.CreateFriendActivity"></activity>
+        <activity android:name=".ui.Home.Alert.AlertActivity"></activity>
+        <activity android:name=".ui.Map.CreateFriendActivity" />
         <activity android:name=".ui.Map.CreateGroupActivity" />
         <activity android:name=".ui.bottomTab.MainActivity">
             <intent-filter>

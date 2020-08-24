@@ -1,5 +1,6 @@
 package com.example.suffle.ui.Home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
 import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
+import com.example.suffle.ui.Home.Alert.AlertActivity
 import kotlinx.android.synthetic.main.fragment_home_content.*
 
 
@@ -35,7 +37,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        frag_home_btn_alert.setOnClickListener {
+            val intent = Intent(context, AlertActivity::class.java)
+            startActivity(intent)
+        }
 
 //        home_sliding_layout.isNestedScrollingEnabled = true
 //
