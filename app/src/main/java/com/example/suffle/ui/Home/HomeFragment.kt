@@ -1,13 +1,12 @@
 package com.example.suffle.ui.Home
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,6 +15,7 @@ import com.example.suffle.R
 import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
 import com.example.suffle.ui.Home.Alert.AlertActivity
+import kotlinx.android.synthetic.main.bottom_sheet_food.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_content.*
 
@@ -50,12 +50,38 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        placeDatas.clear()
+
         // initialize as invisible (could also do in xml)
         bottom_sheet_food.visibility = View.INVISIBLE
         bottom_sheet_cafe.visibility = View.INVISIBLE
         bottom_sheet_drink.visibility = View.INVISIBLE
 
-        placeDatas.clear()
+        bottom_sheet_food_txt_kinds1.isSelected = false
+        bottom_sheet_food_txt_kinds2.isSelected = false
+        bottom_sheet_food_txt_kinds3.isSelected = false
+        bottom_sheet_food_txt_kinds4.isSelected = false
+        bottom_sheet_food_txt_kinds5.isSelected = false
+        bottom_sheet_food_txt_kinds6.isSelected = false
+        bottom_sheet_food_txt_kinds7.isSelected = false
+        bottom_sheet_food_txt_kinds8.isSelected = false
+        bottom_sheet_food_txt_kinds9.isSelected = false
+        bottom_sheet_food_txt_kinds10.isSelected = false
+        bottom_sheet_food_txt_kinds11.isSelected = false
+
+        bottom_sheet_food_txt_theme1.isSelected = false
+        bottom_sheet_food_txt_theme2.isSelected = false
+        bottom_sheet_food_txt_theme3.isSelected = false
+        bottom_sheet_food_txt_theme4.isSelected = false
+        bottom_sheet_food_txt_theme5.isSelected = false
+        bottom_sheet_food_txt_theme6.isSelected = false
+        bottom_sheet_food_txt_theme7.isSelected = false
+        bottom_sheet_food_txt_theme8.isSelected = false
+        bottom_sheet_food_txt_theme9.isSelected = false
+        bottom_sheet_food_txt_theme10.isSelected = false
+        bottom_sheet_food_txt_theme11.isSelected = false
+        bottom_sheet_food_txt_theme12.isSelected = false
+
 
         //Adapter Initialization
         recommandAdapter = RecommandAdapter(view.context)
@@ -192,6 +218,78 @@ class HomeFragment : Fragment() {
                 drink = false; slideDown(bottom_sheet_drink)
             }
         }
+
+        bottom_sheet_food_txt_kinds1.setOnClickListener {
+            bottom_sheet_food_txt_kinds1.isSelected = !bottom_sheet_food_txt_kinds1.isSelected
+        }
+        bottom_sheet_food_txt_kinds2.setOnClickListener {
+            bottom_sheet_food_txt_kinds2.isSelected = !bottom_sheet_food_txt_kinds2.isSelected
+        }
+        bottom_sheet_food_txt_kinds3.setOnClickListener {
+            bottom_sheet_food_txt_kinds3.isSelected = !bottom_sheet_food_txt_kinds3.isSelected
+        }
+        bottom_sheet_food_txt_kinds4.setOnClickListener {
+            bottom_sheet_food_txt_kinds4.isSelected = !bottom_sheet_food_txt_kinds4.isSelected
+        }
+        bottom_sheet_food_txt_kinds5.setOnClickListener {
+            bottom_sheet_food_txt_kinds5.isSelected = !bottom_sheet_food_txt_kinds5.isSelected
+        }
+        bottom_sheet_food_txt_kinds6.setOnClickListener {
+            bottom_sheet_food_txt_kinds6.isSelected = !bottom_sheet_food_txt_kinds6.isSelected
+        }
+        bottom_sheet_food_txt_kinds7.setOnClickListener {
+            bottom_sheet_food_txt_kinds7.isSelected = !bottom_sheet_food_txt_kinds7.isSelected
+        }
+        bottom_sheet_food_txt_kinds8.setOnClickListener {
+            bottom_sheet_food_txt_kinds8.isSelected = !bottom_sheet_food_txt_kinds8.isSelected
+        }
+        bottom_sheet_food_txt_kinds9.setOnClickListener {
+            bottom_sheet_food_txt_kinds9.isSelected = !bottom_sheet_food_txt_kinds9.isSelected
+        }
+        bottom_sheet_food_txt_kinds10.setOnClickListener {
+            bottom_sheet_food_txt_kinds10.isSelected = !bottom_sheet_food_txt_kinds10.isSelected
+        }
+        bottom_sheet_food_txt_kinds11.setOnClickListener {
+            bottom_sheet_food_txt_kinds11.isSelected = !bottom_sheet_food_txt_kinds11.isSelected
+        }
+
+        bottom_sheet_food_txt_theme1.setOnClickListener {
+            bottom_sheet_food_txt_theme1.isSelected = !bottom_sheet_food_txt_theme1.isSelected
+        }
+        bottom_sheet_food_txt_theme2.setOnClickListener {
+            bottom_sheet_food_txt_theme2.isSelected = !bottom_sheet_food_txt_theme2.isSelected
+        }
+        bottom_sheet_food_txt_theme3.setOnClickListener {
+            bottom_sheet_food_txt_theme3.isSelected = !bottom_sheet_food_txt_theme3.isSelected
+        }
+        bottom_sheet_food_txt_theme4.setOnClickListener {
+            bottom_sheet_food_txt_theme4.isSelected = !bottom_sheet_food_txt_theme4.isSelected
+        }
+        bottom_sheet_food_txt_theme5.setOnClickListener {
+            bottom_sheet_food_txt_theme5.isSelected = !bottom_sheet_food_txt_theme5.isSelected
+        }
+        bottom_sheet_food_txt_theme6.setOnClickListener {
+            bottom_sheet_food_txt_theme6.isSelected = !bottom_sheet_food_txt_theme6.isSelected
+        }
+        bottom_sheet_food_txt_theme7.setOnClickListener {
+            bottom_sheet_food_txt_theme7.isSelected = !bottom_sheet_food_txt_theme7.isSelected
+        }
+        bottom_sheet_food_txt_theme8.setOnClickListener {
+            bottom_sheet_food_txt_theme8.isSelected = !bottom_sheet_food_txt_theme8.isSelected
+        }
+        bottom_sheet_food_txt_theme9.setOnClickListener {
+            bottom_sheet_food_txt_theme9.isSelected = !bottom_sheet_food_txt_theme9.isSelected
+        }
+        bottom_sheet_food_txt_theme10.setOnClickListener {
+            bottom_sheet_food_txt_theme10.isSelected = !bottom_sheet_food_txt_theme10.isSelected
+        }
+        bottom_sheet_food_txt_theme11.setOnClickListener {
+            bottom_sheet_food_txt_theme11.isSelected = !bottom_sheet_food_txt_theme11.isSelected
+        }
+        bottom_sheet_food_txt_theme12.setOnClickListener {
+            bottom_sheet_food_txt_theme12.isSelected = !bottom_sheet_food_txt_theme12.isSelected
+        }
+
 
         loadPlaceDatas()
         loadRecoDatas()
@@ -338,4 +436,7 @@ class HomeFragment : Fragment() {
 //        })
         view.startAnimation (animate)
     }
+
+
+
 }

@@ -3,13 +3,12 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/bg_strock_orange_round"/>
+        android:color="@color/faded_orange"/>
 
     <item
         android:state_selected="true"
-        android:drawable="@drawable/bg_strock_orange_round"/>
+        android:color="@color/faded_orange"/>
 
-    <item android:drawable="@drawable/bg_white_four_round"/>
-
+    <item android:color="@color/brownish_grey"/>
 
 </selector>

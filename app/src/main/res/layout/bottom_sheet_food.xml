@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:background="@drawable/bg_white_round">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/bottom_sheet_food_btn_apply"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="22dp"
@@ -53,84 +55,98 @@
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_food_txt_kinds">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="한식"
                 android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
+                android:background="@drawable/sel_sort_bg"
                 android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
+                android:textColor="@drawable/sel_text_color"
                 android:layout_marginRight="10dp"
                 android:lineSpacingExtra="6sp"/>
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="중식"
                 android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
+                android:background="@drawable/sel_sort_bg"
                 android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
+                android:textColor="@drawable/sel_text_color"
                 android:layout_marginRight="10dp"
                 android:lineSpacingExtra="6sp"/>
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="일식/회"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:background="@drawable/sel_sort_bg"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="양식"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="아시안식"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="분식"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="치킨"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="피자"
+                android:background="@drawable/sel_sort_bg"
                 android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:lineSpacingExtra="6sp"/>
+                android:lineSpacingExtra="6sp"
+                android:text="피자"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -144,36 +160,39 @@
             tools:layout_editor_absoluteX="16dp">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bg_white_four_round"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:lineSpacingExtra="6sp"
                 android:text="고기"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:textColor="@color/brownish_grey"
+                android:background="@drawable/sel_sort_bg"
+                android:textColor="@drawable/sel_text_color"
                 android:textSize="10sp" />
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bg_white_four_round"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:lineSpacingExtra="6sp"
                 android:text="찜/탕"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:textColor="@color/brownish_grey"
+                android:textColor="@drawable/sel_text_color"
                 android:textSize="10sp" />
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_kinds11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bg_white_four_round"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:lineSpacingExtra="6sp"
                 android:text="패스트푸드"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:textColor="@color/brownish_grey"
+                android:textColor="@drawable/sel_text_color"
                 android:textSize="10sp" />
         </LinearLayout>
 
@@ -218,45 +237,52 @@
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_food_txt_theme">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="데이트하기 좋은"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="혼밥하기 좋은"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="메운맛 고수"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="티비출연"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
                 android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
+                android:text="티비출연"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottom_sheet_food_linear4"
@@ -268,45 +294,52 @@
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_food_linear3">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="소개팅하기 좋은"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="해장하기 좋은"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="해비한 식사"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가벼운 식사"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
                 android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
+                android:text="가벼운 식사"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottom_sheet_food_linear5"
@@ -318,45 +351,52 @@
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_food_linear4">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="뷔페"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="집밥이 그리워"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="인스타에서 핫한"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="어른을 모시고"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
                 android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
+                android:text="어른을 모시고"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottom_sheet_food_linear6"
@@ -368,45 +408,52 @@
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_food_linear5">
 
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="루프탑"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="24시간 영업"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
                 android:text="가족외식"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
-                android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
+
             <TextView
+                android:id="@+id/bottom_sheet_food_txt_theme16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회식하기 좋은"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:background="@drawable/bg_white_four_round"
-                android:textSize="10sp"
-                android:textColor="@color/brownish_grey"
                 android:layout_marginRight="10dp"
-                android:lineSpacingExtra="6sp"/>
+                android:background="@drawable/sel_sort_bg"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:lineSpacingExtra="6sp"
+                android:text="회식하기 좋은"
+                android:textColor="@drawable/sel_text_color"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
