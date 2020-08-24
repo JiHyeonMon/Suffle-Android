@@ -1,10 +1,13 @@
 package com.example.suffle.ui.Home
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,10 +16,15 @@ import com.example.suffle.R
 import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
 import com.example.suffle.ui.Home.Alert.AlertActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_content.*
 
 
 class HomeFragment : Fragment() {
+
+    var food = false
+    var cafe = false
+    var drink = false
 
     val placeDatas = mutableListOf<PlaceData>()
     val recommandDatas = mutableListOf<MainRecommandData>()
@@ -31,7 +39,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_content, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,11 +50,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-//        home_sliding_layout.isNestedScrollingEnabled = true
-//
-//        home_sliding_layout.setFadeOnClickListener(View.OnClickListener {
-//            home_sliding_layout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
-//        })
+        // initialize as invisible (could also do in xml)
+        bottom_sheet_food.visibility = View.INVISIBLE
+        bottom_sheet_cafe.visibility = View.INVISIBLE
+        bottom_sheet_drink.visibility = View.INVISIBLE
 
         placeDatas.clear()
 
@@ -67,22 +74,17 @@ class HomeFragment : Fragment() {
                 }
             })
 
+        //attach adapter
         frag_home_rv_recommand.adapter = recommandAdapter
-        frag_home_rv_recommand.layoutManager = context?.let { CenterZoomLinearLayoutManager(it, 20f, 7f) }
-
-//        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-//        layoutManager.stackFromEnd = true
-//        frag_home_rv_recommand.layoutManager = layoutManager
-
-//        val snapHelper = LinearSnapHelper() // snaps the center
-//        snapHelper.attachToRecyclerView(frag_home_rv_recommand)
+        frag_home_rv_recommand.layoutManager =
+            context?.let { CenterZoomLinearLayoutManager(it, 20f, 7f) }
 
         frag_home_rv_place.adapter = placeLinearAdapter
         frag_home_rv_place.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
+        //chage layout
         frag_home_btn_layout.setOnClickListener {
-            if(tmp == 0){
+            if (tmp == 0) {
                 tmp = 1
                 placeDatas.clear()
                 frag_home_btn_layout.setImageResource(R.drawable.icon_linear_layout)
@@ -90,7 +92,7 @@ class HomeFragment : Fragment() {
                 frag_home_rv_place.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 loadPlaceDatas()
-            }else{
+            } else {
                 tmp = 0
                 placeDatas.clear()
                 frag_home_btn_layout.setImageResource(R.drawable.icon_grid_layout)
@@ -102,12 +104,22 @@ class HomeFragment : Fragment() {
 
         }
 
-
+        //filter
         frag_home_btn_filter_all.setOnClickListener {
             frag_home_btn_filter_all_bar.visibility = View.VISIBLE
             frag_home_btn_filter_food_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
+
+            if (food) {
+                food = false; slideDown(bottom_sheet_food)
+            }
+            if (cafe) {
+                cafe = false; slideDown(bottom_sheet_cafe)
+            }
+            if (drink) {
+                drink = false; slideDown(bottom_sheet_drink)
+            }
         }
 
         frag_home_btn_filter_food.setOnClickListener {
@@ -116,8 +128,17 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-//            home_sliding_layout.setDragView(R.layout.bottom_sheet_food)
-//            home_sliding_layout.panelHeight = 467
+            if (cafe) {
+                cafe = false; slideDown(bottom_sheet_cafe)
+            }
+            if (drink) {
+                drink = false; slideDown(bottom_sheet_drink)
+            }
+            food = if (!food) {
+                slideUp(bottom_sheet_food); true
+            } else {
+                slideDown(bottom_sheet_food); false
+            }
 
         }
 
@@ -127,9 +148,17 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.VISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-
-//            home_sliding_layout.setDragView(R.layout.bottom_sheet_cafe)
-//            home_sliding_layout.panelHeight = 467
+            if (food) {
+                food = false; slideDown(bottom_sheet_food)
+            }
+            if (drink) {
+                drink = false; slideDown(bottom_sheet_drink)
+            }
+            cafe = if (!cafe) {
+                slideUp(bottom_sheet_cafe); true
+            } else {
+                slideDown(bottom_sheet_cafe); false
+            }
         }
 
         frag_home_btn_filter_drink.setOnClickListener {
@@ -138,7 +167,30 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.VISIBLE
 
-//            home_sliding_layout.panelHeight = 467
+            if (cafe) {
+                cafe = false; slideDown(bottom_sheet_cafe)
+            }
+            if (food) {
+                drink = false; slideDown(bottom_sheet_food)
+            }
+            drink = if (!drink) {
+                slideUp(bottom_sheet_drink); true
+            } else {
+                slideDown(bottom_sheet_drink); false
+            }
+        }
+
+        frag_home.setOnClickListener {
+            Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
+            if (food) {
+                food = false; slideDown(bottom_sheet_food)
+            }
+            if (cafe) {
+                cafe = false; slideDown(bottom_sheet_cafe)
+            }
+            if (drink) {
+                drink = false; slideDown(bottom_sheet_drink)
+            }
         }
 
         loadPlaceDatas()
@@ -146,7 +198,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun loadPlaceDatas(){
+    private fun loadPlaceDatas() {
         placeDatas.apply {
             add(
                 PlaceData(
@@ -190,16 +242,16 @@ class HomeFragment : Fragment() {
             )
         }
 
-        if(frag_home_rv_place.adapter == placeLinearAdapter){
+        if (frag_home_rv_place.adapter == placeLinearAdapter) {
             placeLinearAdapter.datas = placeDatas
             placeLinearAdapter.notifyDataSetChanged()
-        }else{
+        } else {
             placeGridAdapter.datas = placeDatas
             placeGridAdapter.notifyDataSetChanged()
         }
     }
 
-    private fun loadRecoDatas(){
+    private fun loadRecoDatas() {
         recommandDatas.apply {
             add(
                 MainRecommandData(
@@ -255,4 +307,35 @@ class HomeFragment : Fragment() {
         recommandAdapter.notifyDataSetChanged()
     }
 
+    // slide the view from below itself to the current position
+    fun slideUp(view: View) {
+        view.visibility = View.VISIBLE
+        val animate = TranslateAnimation(
+            0F,  // fromXDelta
+            0F,  // toXDelta
+            view.height.toFloat(),  // fromYDelta
+            0F
+        ) // toYDelta
+        animate.duration = 500
+        animate.fillAfter = true
+        view.startAnimation(animate)
+    }
+
+    // slide the view from its current position to below itself
+    fun slideDown(view: View) {
+        val animate = TranslateAnimation(
+            0F,  // fromXDelta
+            0F,  // toXDelta
+            0F,  // fromYDelta
+            view.height.toFloat()
+        ) // toYDelta
+        animate.duration = 500
+        animate.fillAfter = true
+//        animate.setListener(object : AnimatorListenerAdapter() {
+//            override fun onAnimationEnd(animation: Animator) {
+//                loadingView.visibility = View.GONE
+//            }
+//        })
+        view.startAnimation (animate)
+    }
 }
