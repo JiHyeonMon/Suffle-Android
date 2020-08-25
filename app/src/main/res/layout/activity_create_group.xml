@@ -200,7 +200,7 @@
                         android:layout_marginStart="38dp"
                         android:background="@null"
                         android:lineSpacingExtra="6sp"
-                        android:text="그룹명을 입력해주세요"
+                        android:hint="그룹명을 입력해주세요"
                         android:fontFamily="@font/kopubworld_dotum_medium"
                         android:textColor="@color/brownish_grey"
                         android:textSize="11sp"

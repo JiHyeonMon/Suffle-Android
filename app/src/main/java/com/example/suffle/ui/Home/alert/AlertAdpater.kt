@@ -1,4 +1,4 @@
-package com.example.suffle.ui.Home.Alert
+package com.example.suffle.ui.Home.alert
 
 import android.content.Context
 import android.view.LayoutInflater

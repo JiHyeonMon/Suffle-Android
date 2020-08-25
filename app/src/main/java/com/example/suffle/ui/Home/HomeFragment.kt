@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
 import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
-import com.example.suffle.ui.Home.Alert.AlertActivity
+import com.example.suffle.ui.Home.alert.AlertActivity
+import com.example.suffle.ui.Home.location.LocationActivity
 import kotlinx.android.synthetic.main.bottom_sheet_food.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_content.*
@@ -47,6 +47,11 @@ class HomeFragment : Fragment() {
 
         frag_home_btn_alert.setOnClickListener {
             val intent = Intent(context, AlertActivity::class.java)
+            startActivity(intent)
+        }
+
+        imageView4.setOnClickListener {
+            val intent = Intent(context, LocationActivity::class.java)
             startActivity(intent)
         }
 
@@ -436,7 +441,6 @@ class HomeFragment : Fragment() {
 //        })
         view.startAnimation (animate)
     }
-
 
 
 }

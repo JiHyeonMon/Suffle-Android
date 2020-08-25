@@ -1,4 +1,4 @@
-package com.example.suffle.ui.Home.Alert
+package com.example.suffle.ui.Home.alert
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
 import com.example.suffle.data.PersonListData
-import com.example.suffle.ui.Home.PlaceLinearViewHolder
 import kotlinx.android.synthetic.main.activity_alert.*
 
 class AlertActivity : AppCompatActivity() {
