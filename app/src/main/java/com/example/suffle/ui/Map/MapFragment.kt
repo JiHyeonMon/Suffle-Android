@@ -15,11 +15,9 @@ import com.example.suffle.data.PersonListData
 import com.example.suffle.data.PlaceData
 import kotlinx.android.synthetic.main.bottom_sheet_map.*
 import kotlinx.android.synthetic.main.fragment_map.*
-import kotlinx.android.synthetic.main.fragment_map_content.*
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
-
 
 class MapFragment : Fragment() {
 
@@ -44,6 +42,7 @@ class MapFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         //setting sliding panel
         map_sliding_layout.setDragView(R.layout.bottom_sheet_map)
         map_sliding_layout.isNestedScrollingEnabled = true
@@ -51,10 +50,10 @@ class MapFragment : Fragment() {
         placeDatas.clear()
         personDatas.clear()
 
-//        //지도 띄우기
-//        val mapView = MapView(activity)
-//        val mapViewContainer = map_view as ViewGroup
-//        mapViewContainer.addView(mapView)
+        //지도 띄우기
+        val mapView = MapView(activity)
+        val mapViewContainer = map_view as ViewGroup
+        mapViewContainer.addView(mapView)
 
         //Adapter Initialization
         mapPersonAdapter = MapPersonAdapter(view.context,
@@ -66,7 +65,7 @@ class MapFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-//                    setMarker(mapView, personDatas[position].txt_personName, markerData)
+                    setMarker(mapView, personDatas[position].txt_personName, markerData)
                 }
 
             })

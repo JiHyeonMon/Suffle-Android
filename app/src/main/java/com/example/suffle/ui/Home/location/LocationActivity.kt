@@ -2,7 +2,6 @@ package com.example.suffle.ui.Home.location
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.suffle.R
@@ -63,7 +62,7 @@ class LocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
 
-        act_location_btn_back.setOnClickListener {
+        act_search_btn_back.setOnClickListener {
             finish()
         }
 

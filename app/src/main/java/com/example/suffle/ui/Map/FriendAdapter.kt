@@ -39,7 +39,7 @@ class FriendViewHolder(itemview: View, val clickListener: onClickListener) : Rec
     val txt_personName = itemView.findViewById<TextView>(R.id.item_act_create_friend_txt_person)
 
     fun bind(personListData: PersonListData) {
-        Glide.with(itemView).load(personListData.img_person).into(img_person);
+        Glide.with(itemView).load(personListData.img_person).circleCrop().into(img_person);
         txt_personName.text = personListData.txt_personName
     }
 

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Home.search.SearchLocationActivity"></activity>
+        <activity android:name=".ui.Home.search.SearchActivity"></activity>
         <activity android:name=".ui.Home.location.LocationActivity" />
         <activity android:name=".ui.Home.alert.AlertActivity" />
         <activity android:name=".ui.Map.CreateFriendActivity" />

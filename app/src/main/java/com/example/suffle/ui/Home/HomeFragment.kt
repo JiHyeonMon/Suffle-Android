@@ -15,9 +15,13 @@ import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
 import com.example.suffle.ui.Home.alert.AlertActivity
 import com.example.suffle.ui.Home.location.LocationActivity
+import com.example.suffle.ui.Home.location.LocationViewHolder
+import com.example.suffle.ui.Home.search.SearchActivity
 import kotlinx.android.synthetic.main.bottom_sheet_food.*
+import kotlinx.android.synthetic.main.bottom_sheet_sequence.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_content.*
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -33,6 +37,12 @@ class HomeFragment : Fragment() {
     lateinit var placeGridAdapter: PlaceGridAdapter
     lateinit var recommandAdapter: RecommandAdapter
 
+    val img = arrayListOf<Int>(R.drawable.ic_sequence1,R.drawable.ic_sequence2,R.drawable.ic_sequence3,R.drawable.ic_sequence4)
+    val list = arrayListOf<String>()
+    var recommand = false
+    var distance = false
+    var review = false
+    var wishlist = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +55,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        frag_home.setOnClickListener {
+            Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
+        }
+
         frag_home_btn_alert.setOnClickListener {
             val intent = Intent(context, AlertActivity::class.java)
             startActivity(intent)
@@ -55,12 +69,18 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        frag_home_btn_search.setOnClickListener {
+            val intent = Intent(context, SearchActivity::class.java)
+            startActivity(intent)
+        }
+
         placeDatas.clear()
 
         // initialize as invisible (could also do in xml)
         bottom_sheet_food.visibility = View.INVISIBLE
         bottom_sheet_cafe.visibility = View.INVISIBLE
         bottom_sheet_drink.visibility = View.INVISIBLE
+        bottom_sheet_sequence.visibility = View.INVISIBLE
 
         bottom_sheet_food_txt_kinds1.isSelected = false
         bottom_sheet_food_txt_kinds2.isSelected = false
@@ -221,6 +241,70 @@ class HomeFragment : Fragment() {
             }
             if (drink) {
                 drink = false; slideDown(bottom_sheet_drink)
+            }
+        }
+
+        frag_home_btn_sort_sequence.setOnClickListener {
+            slideUp(bottom_sheet_sequence)
+
+            bottom_sheet_sequence_recommand.setOnClickListener {
+                if(!recommand){    //선택
+                    list.add("bottom_sheet_sequence_img_recommand")
+                    recommand = true
+                    bottom_sheet_sequence_img_recommand.visibility = View.VISIBLE
+                    bottom_sheet_sequence_recommand.isSelected = true
+                    bottom_sheet_sequence_img_recommand.setImageResource(img[list.size-1])
+                }else{  //선택 해제시
+                    recommand = false
+                    list.remove("bottom_sheet_sequence_img_recommand")
+                    bottom_sheet_sequence_recommand.isSelected = false
+                    bottom_sheet_sequence_img_recommand.visibility = View.INVISIBLE
+                }
+            }
+
+            bottom_sheet_sequence_distance.setOnClickListener {
+                if(!distance){    //선택
+                    list.add("bottom_sheet_sequence_img_distance")
+                    distance = true
+                    bottom_sheet_sequence_img_distance.visibility = View.VISIBLE
+                    bottom_sheet_sequence_distance.isSelected = true
+                    bottom_sheet_sequence_img_distance.setImageResource(img[list.size-1])
+                }else{  //선택 해제시
+                    distance = false
+                    list.remove("bottom_sheet_sequence_img_distance")
+                    bottom_sheet_sequence_distance.isSelected = false
+                    bottom_sheet_sequence_img_distance.visibility = View.INVISIBLE
+                }
+            }
+
+            bottom_sheet_sequence_review.setOnClickListener {
+                if(!review){    //선택
+                    list.add("bottom_sheet_sequence_img_review")
+                    review = true
+                    bottom_sheet_sequence_img_review.visibility = View.VISIBLE
+                    bottom_sheet_sequence_review.isSelected = true
+                    bottom_sheet_sequence_img_review.setImageResource(img[list.size-1])
+                }else{  //선택 해제시
+                    review = false
+                    list.remove("bottom_sheet_sequence_img_review")
+                    bottom_sheet_sequence_review.isSelected = false
+                    bottom_sheet_sequence_img_review.visibility = View.INVISIBLE
+                }
+            }
+
+            bottom_sheet_sequence_wishlist.setOnClickListener {
+                if(!wishlist){    //선택
+                    list.add("bottom_sheet_sequence_img_wishlist")
+                    wishlist = true
+                    bottom_sheet_sequence_img_wishlist.visibility = View.VISIBLE
+                    bottom_sheet_sequence_wishlist.isSelected = true
+                    bottom_sheet_sequence_img_wishlist.setImageResource(img[list.size-1])
+                }else{  //선택 해제시
+                    wishlist = false
+                    list.remove("bottom_sheet_sequence_img_wishlist")
+                    bottom_sheet_sequence_wishlist.isSelected = false
+                    bottom_sheet_sequence_img_wishlist.visibility = View.INVISIBLE
+                }
             }
         }
 
@@ -441,6 +525,13 @@ class HomeFragment : Fragment() {
 //        })
         view.startAnimation (animate)
     }
-
+//
+//    private fun delete(){
+//        for(i in 0 until list.size){
+//            if(recommand){
+//                bottom_sheet_sequence_img_recommand.setImageResource(img[])
+//            }
+//        }
+//    }
 
 }

@@ -44,14 +44,16 @@ dependencies {
     //daum map api
     implementation files('libs/libDaumMapAndroid.jar')
 
-    //bottom scroll up
+    //bottom scroll up & glide
     repositories {
         mavenCentral()
+
+        google()
+        jcenter()
     }
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'jp.wasabeef:glide-transformations:1.0.6@aar'
 
 }
