@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/act_location_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -54,9 +54,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                    app:layout_constraintBottom_toBottomOf="@+id/act_location_title"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView12"
+                    app:layout_constraintTop_toTopOf="@+id/act_location_title"
                     app:srcCompat="@drawable/ic_back" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -324,6 +324,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
+                android:id="@+id/act_location_btn_apply"
                 android:layout_width="152dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="23dp"

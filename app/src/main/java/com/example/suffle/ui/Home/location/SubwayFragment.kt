@@ -107,7 +107,6 @@ class SubwayFragment : Fragment() {
             else ->{ locationAdapter.datas = subwayData; locationAdapter.notifyDataSetChanged()}
         }
 
-//        locationAdapter.datas = subwayData
         locationAdapter.notifyDataSetChanged()
 
     }

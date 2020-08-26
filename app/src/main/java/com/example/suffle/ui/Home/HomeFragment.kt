@@ -28,7 +28,6 @@ import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_drink
 import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_food
 import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_sequence
 import kotlinx.android.synthetic.main.fragment_home_content.*
-import kotlinx.android.synthetic.main.item_frag_home_linear_list.*
 
 
 class HomeFragment : Fragment() {
@@ -69,8 +68,10 @@ class HomeFragment : Fragment() {
 
         frag_home_btn_location.setOnClickListener {
             val intent = Intent(context, LocationActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("presentLocation", frag_home_text_location.text)
+            startActivityForResult(intent,200)
         }
+
 
         frag_home_btn_search.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
@@ -584,6 +585,14 @@ class HomeFragment : Fragment() {
                 "bottom_sheet_sequence_img_review"->{bottom_sheet_sequence_img_review.setImageResource(img[i])}
                 "bottom_sheet_sequence_img_wishlist"->{bottom_sheet_sequence_img_wishlist.setImageResource(img[i])}
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (data != null) {
+            frag_home_text_location.text = data.getStringExtra("station")
         }
     }
 
