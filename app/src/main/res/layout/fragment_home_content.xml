@@ -5,10 +5,10 @@
     android:id="@+id/frag_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:background="@color/white">
+    android:focusableInTouchMode="true">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -59,14 +59,34 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/frag_home_btn_alert" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/frag_home_btn_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:src="@drawable/icon_subway"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                    <TextView
+                        android:id="@+id/frag_home_text_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
+                        android:lineSpacingExtra="8sp"
+                        android:text="화랑대역"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_expand_more"
+                        app:layout_constraintBottom_toBottomOf="@+id/frag_home_text_location"
+                        app:layout_constraintStart_toEndOf="@+id/frag_home_text_location"
+                        app:layout_constraintTop_toTopOf="@+id/frag_home_text_location" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/textView"
@@ -78,7 +98,7 @@
                     android:textColor="@color/black"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/frag_home_btn_location" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -106,8 +126,8 @@
                     android:id="@+id/frag_home_rv_recommand"
                     android:layout_width="match_parent"
                     android:layout_height="170dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
@@ -314,15 +334,71 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/frag_home_btn_sort_sequence"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/frag_home_btn_sequence"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginBottom="40dp"
-                    android:src="@drawable/img_sorting"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/frag_home_btn_filter"
+                    app:layout_constraintTop_toTopOf="@+id/frag_home_btn_layout">
+
+                    <TextView
+                        android:id="@+id/frag_home_text_sequence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_light"
+                        android:lineSpacingExtra="6sp"
+                        android:text="정렬순서"
+                        android:textColor="@color/faded_orange"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:src="@drawable/ic_filter_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/frag_home_text_sequence"
+                        app:layout_constraintStart_toEndOf="@+id/frag_home_text_sequence"
+                        app:layout_constraintTop_toTopOf="@+id/frag_home_text_sequence" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/frag_home_btn_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/frag_home_btn_sequence">
+
+                    <TextView
+                        android:id="@+id/frag_home_text_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_light"
+                        android:lineSpacingExtra="6sp"
+                        android:text="필터"
+                        android:textColor="@color/faded_orange"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:src="@drawable/ic_filter_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/frag_home_text_filter"
+                        app:layout_constraintStart_toEndOf="@+id/frag_home_text_filter"
+                        app:layout_constraintTop_toTopOf="@+id/frag_home_text_filter" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -331,7 +407,7 @@
                 android:id="@+id/frag_home_rv_place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="10dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

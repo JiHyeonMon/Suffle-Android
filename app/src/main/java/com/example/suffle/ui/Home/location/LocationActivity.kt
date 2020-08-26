@@ -66,6 +66,19 @@ class LocationActivity : AppCompatActivity() {
             finish()
         }
 
+        locationAdapter = LocationAdapter(this,
+            object : LocationViewHolder.onClickListener {
+                override fun onClickItem(position: Int) {
+
+                }
+            })
+
+        act_location_rv.adapter = locationAdapter
+        act_location_rv.layoutManager = GridLayoutManager(this, 4)
+
+        locationAdapter.datas = subwayData
+        locationAdapter.notifyDataSetChanged()
+
         act_location_tab.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 if (act_location_tab.getSelectedTabPosition() === 0) {
@@ -90,15 +103,6 @@ class LocationActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
-        locationAdapter = LocationAdapter(this,
-            object : LocationViewHolder.onClickListener {
-                override fun onClickItem(position: Int) {
-
-                }
-            })
-
-        act_location_rv.adapter = locationAdapter
-        act_location_rv.layoutManager = GridLayoutManager(this, 4)
 
         settingList()
 

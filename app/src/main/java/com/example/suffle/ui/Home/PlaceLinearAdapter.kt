@@ -15,16 +15,17 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.suffle.R
 import com.example.suffle.data.PlaceData
+import kotlinx.android.synthetic.main.item_frag_home_linear_list.view.*
 import kotlin.math.roundToInt
 
-class PlaceLinearAdapter (private val context: Context, private val clickListener: PlaceLinearViewHolder.onClickListener): RecyclerView.Adapter<PlaceLinearViewHolder>(){
+class PlaceLinearAdapter (private val context: Context, private val clickListener: PlaceLinearViewHolder.onClickListener, private val clickBookmark: PlaceLinearViewHolder.onClickBookmark): RecyclerView.Adapter<PlaceLinearViewHolder>(){
 
     var datas = mutableListOf<PlaceData>()
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceLinearViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_frag_home_linear_list, parent, false)
-        return PlaceLinearViewHolder(view, clickListener)
+        return PlaceLinearViewHolder(view, clickListener, clickBookmark)
     }
 
     override fun getItemCount(): Int {
@@ -38,8 +39,9 @@ class PlaceLinearAdapter (private val context: Context, private val clickListene
 
 }
 
-class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) : RecyclerView.ViewHolder(itemview){
+class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener, val clickBookmark: onClickBookmark) : RecyclerView.ViewHolder(itemview){
     val img_place = itemview.findViewById<ImageView>(R.id.img_place)
+    val bookmark = itemview.findViewById<ImageView>(R.id.img_bookmark)
     val txt_placeName = itemView.findViewById<TextView>(R.id.txt_placeName)
     val txt_distance = itemView.findViewById<TextView>(R.id.txt_distance)
     val txt_thumbUp = itemView.findViewById<TextView>(R.id.txt_thumbUp)
@@ -48,21 +50,34 @@ class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) 
     fun bind(placeData: PlaceData) {
         Glide.with(itemView).load(placeData.img_place).apply(RequestOptions().transforms(CenterCrop(),RoundedCorners(20))).into(img_place)
 
-
         txt_placeName.text = placeData.txt_place
         txt_distance.text = placeData.txt_distance
         txt_thumbUp.text = placeData.txt_thumbUp
         txt_thumbDown.text = placeData.txt_thumbDown
+
+        if(placeData.img_bookmark){
+            bookmark.setImageResource(R.drawable.icon_bookmark_selected)
+        }else{
+            bookmark.setImageResource(R.drawable.icon_bookmark)
+        }
     }
 
     init {
         itemView.setOnClickListener {
             clickListener.onClickItem(adapterPosition)
         }
+
+        itemview.img_bookmark.setOnClickListener {
+            clickBookmark.onClickBookmark(adapterPosition)
+        }
     }
 
     interface onClickListener {
         fun onClickItem(position: Int)
+    }
+
+    interface onClickBookmark{
+        fun onClickBookmark(position: Int)
     }
 
 }

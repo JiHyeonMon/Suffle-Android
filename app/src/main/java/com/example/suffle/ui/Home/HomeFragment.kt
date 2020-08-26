@@ -62,16 +62,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        frag_home.setOnClickListener {
-            Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
-        }
-
         frag_home_btn_alert.setOnClickListener {
             val intent = Intent(context, AlertActivity::class.java)
             startActivity(intent)
         }
 
-        imageView4.setOnClickListener {
+        frag_home_btn_location.setOnClickListener {
             val intent = Intent(context, LocationActivity::class.java)
             startActivity(intent)
         }
@@ -123,7 +119,20 @@ class HomeFragment : Fragment() {
                 override fun onClickItem(position: Int) {
                     Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
                 }
-            })
+            }, object :PlaceLinearViewHolder.onClickBookmark{
+            override fun onClickBookmark(position: Int) {
+                Toast.makeText(context, "즐겨찾기", Toast.LENGTH_SHORT).show()
+
+                if(placeDatas[position].img_bookmark){
+                    placeDatas[position].img_bookmark = false
+                    placeLinearAdapter.notifyItemChanged(position)
+                }else{
+                    placeDatas[position].img_bookmark = true
+                    placeLinearAdapter.notifyItemChanged(position)
+
+                }
+            }
+        })
 
         placeGridAdapter = PlaceGridAdapter(view.context,
             object : PlaceGridViewHolder.onClickListener {
@@ -273,7 +282,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        frag_home_btn_sort_sequence.setOnClickListener {
+        frag_home_btn_sequence.setOnClickListener {
             slideUp(bottom_sheet_sequence)
 
             bottom_sheet_sequence_btn_apply.setOnClickListener {
@@ -431,7 +440,7 @@ class HomeFragment : Fragment() {
                 PlaceData(
                     img_place = "https://www.news-paper.co.kr/news/photo/201812/31163_22110_3241.jpg",
                     txt_place = "라라브레드",
-                    img_bookmark = false,
+                    img_bookmark = true,
                     txt_distance = "1.5km",
                     txt_thumbUp = "김주은외 4,345",
                     txt_thumbDown = "55"
@@ -461,7 +470,7 @@ class HomeFragment : Fragment() {
                 PlaceData(
                     img_place = "https://lh3.googleusercontent.com/proxy/0fSPDWXT8LvpXQsFwlCGm4Amkd3gw-Z-p3v1q-RsrUW1Z1kj7JOpuzOCzbn7Uu_cmqnPTJE1hAXzO2st9vCczfUKqXJiKnhCe1QNHMXT1N0y6C3Nic6_gAazhK2ipj9JsT5DkcSAfYWUIKuKP8riygED8Fzy-N3rHjnTX7Z8ltQJX87A9GPfL6PVW2Ez4_3dZTEZOuq6GRk1Sc50VAtQYqR6h2HpwQv9wJegSKuvmjGYC0Q1tJBQwXo4TjvBqKYkdfOBpx8ZkRZn-5El1i9trdHEF1ne",
                     txt_place = "라라브레드",
-                    img_bookmark = false,
+                    img_bookmark = true,
                     txt_distance = "1.5km",
                     txt_thumbUp = "김주은외 4,345",
                     txt_thumbDown = "55"
