@@ -331,7 +331,7 @@
                 android:id="@+id/frag_home_rv_place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp" />
+                android:layout_marginHorizontal="10dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
