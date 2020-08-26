@@ -10,18 +10,25 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.azoft.carousellayoutmanager.CarouselLayoutManager
+import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
+import com.azoft.carousellayoutmanager.CenterScrollListener
 import com.example.suffle.R
 import com.example.suffle.data.MainRecommandData
 import com.example.suffle.data.PlaceData
 import com.example.suffle.ui.Home.alert.AlertActivity
 import com.example.suffle.ui.Home.location.LocationActivity
-import com.example.suffle.ui.Home.location.LocationViewHolder
 import com.example.suffle.ui.Home.search.SearchActivity
+import kotlinx.android.synthetic.main.bottom_sheet_cafe.*
+import kotlinx.android.synthetic.main.bottom_sheet_drink.*
 import kotlinx.android.synthetic.main.bottom_sheet_food.*
 import kotlinx.android.synthetic.main.bottom_sheet_sequence.*
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_cafe
+import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_drink
+import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_food
+import kotlinx.android.synthetic.main.fragment_home.bottom_sheet_sequence
 import kotlinx.android.synthetic.main.fragment_home_content.*
-import java.util.*
+import kotlinx.android.synthetic.main.item_frag_home_linear_list.*
 
 
 class HomeFragment : Fragment() {
@@ -127,8 +134,16 @@ class HomeFragment : Fragment() {
 
         //attach adapter
         frag_home_rv_recommand.adapter = recommandAdapter
-        frag_home_rv_recommand.layoutManager =
-            context?.let { CenterZoomLinearLayoutManager(it, 20f, 7f) }
+//        frag_home_rv_recommand.layoutManager =
+//            context?.let { CenterZoomLinearLayoutManager(it, 20f, 7f) }
+
+        var layoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL)
+        layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
+        layoutManager.maxVisibleItems = 1
+
+        frag_home_rv_recommand.layoutManager = layoutManager
+        frag_home_rv_recommand.addOnScrollListener(CenterScrollListener())
+
 
         frag_home_rv_place.adapter = placeLinearAdapter
         frag_home_rv_place.layoutManager =
@@ -162,15 +177,10 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-            if (food) {
-                food = false; slideDown(bottom_sheet_food)
-            }
-            if (cafe) {
-                cafe = false; slideDown(bottom_sheet_cafe)
-            }
-            if (drink) {
-                drink = false; slideDown(bottom_sheet_drink)
-            }
+            if (food) { slideDown(bottom_sheet_food) }
+            if (cafe) { slideDown(bottom_sheet_cafe) }
+            if (drink) { slideDown(bottom_sheet_drink) }
+            food = false; cafe = false; drink = false
         }
 
         frag_home_btn_filter_food.setOnClickListener {
@@ -179,6 +189,9 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
+            bottom_sheet_food_view.setOnClickListener {
+                slideDown(bottom_sheet_food); food = false
+            }
             if (cafe) {
                 cafe = false; slideDown(bottom_sheet_cafe)
             }
@@ -190,6 +203,9 @@ class HomeFragment : Fragment() {
             } else {
                 slideDown(bottom_sheet_food); false
             }
+            bottom_sheet_food_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_food); food = false
+            }
 
         }
 
@@ -199,6 +215,9 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.VISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
+            bottom_sheet_cafe_view.setOnClickListener {
+                slideDown(bottom_sheet_cafe); cafe = false
+            }
             if (food) {
                 food = false; slideDown(bottom_sheet_food)
             }
@@ -210,6 +229,9 @@ class HomeFragment : Fragment() {
             } else {
                 slideDown(bottom_sheet_cafe); false
             }
+            bottom_sheet_cafe_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_cafe); cafe = false
+            }
         }
 
         frag_home_btn_filter_drink.setOnClickListener {
@@ -217,6 +239,10 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_food_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.VISIBLE
+
+            bottom_sheet_drink_view.setOnClickListener {
+                slideDown(bottom_sheet_drink); drink = false
+            }
 
             if (cafe) {
                 cafe = false; slideDown(bottom_sheet_cafe)
@@ -228,6 +254,9 @@ class HomeFragment : Fragment() {
                 slideUp(bottom_sheet_drink); true
             } else {
                 slideDown(bottom_sheet_drink); false
+            }
+            bottom_sheet_drink_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_drink); drink = false
             }
         }
 
@@ -246,6 +275,13 @@ class HomeFragment : Fragment() {
 
         frag_home_btn_sort_sequence.setOnClickListener {
             slideUp(bottom_sheet_sequence)
+
+            bottom_sheet_sequence_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_sequence)
+            }
+            bottom_sheet_sequence_view.setOnClickListener {
+                slideDown(bottom_sheet_sequence)
+            }
 
             bottom_sheet_sequence_recommand.setOnClickListener {
                 if(!recommand){    //선택
@@ -501,6 +537,7 @@ class HomeFragment : Fragment() {
     // slide the view from below itself to the current position
     fun slideUp(view: View) {
         view.visibility = View.VISIBLE
+
         val animate = TranslateAnimation(
             0F,  // fromXDelta
             0F,  // toXDelta

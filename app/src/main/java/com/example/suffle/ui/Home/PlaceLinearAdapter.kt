@@ -1,6 +1,7 @@
 package com.example.suffle.ui.Home
 
 import android.content.Context
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.annotation.GlideOption
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.suffle.R
 import com.example.suffle.data.PlaceData
+import kotlin.math.roundToInt
 
 class PlaceLinearAdapter (private val context: Context, private val clickListener: PlaceLinearViewHolder.onClickListener): RecyclerView.Adapter<PlaceLinearViewHolder>(){
 
@@ -40,7 +46,9 @@ class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) 
     val txt_thumbDown = itemView.findViewById<TextView>(R.id.txt_thumbDown)
 
     fun bind(placeData: PlaceData) {
-        Glide.with(itemView).load(placeData.img_place).into(img_place);
+        Glide.with(itemView).load(placeData.img_place).apply(RequestOptions().transforms(CenterCrop(),RoundedCorners(20))).into(img_place)
+
+
         txt_placeName.text = placeData.txt_place
         txt_distance.text = placeData.txt_distance
         txt_thumbUp.text = placeData.txt_thumbUp
@@ -56,4 +64,5 @@ class PlaceLinearViewHolder(itemview: View, val clickListener: onClickListener) 
     interface onClickListener {
         fun onClickItem(position: Int)
     }
+
 }
