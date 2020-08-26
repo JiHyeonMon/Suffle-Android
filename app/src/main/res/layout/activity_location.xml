@@ -172,7 +172,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="30dp"
-                android:scrollbars="none"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/act_search_card"
                 app:tabIndicatorColor="@color/faded_orange"
@@ -182,36 +181,44 @@
                 app:tabTextColor="@color/brownish_grey">
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_my"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
                     android:text="내주변" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_hot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hot" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1호선" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2호선" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3호선" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4호선" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/act_location_tab_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5호선" />
@@ -248,19 +255,30 @@
                 app:layout_constraintStart_toStartOf="@+id/act_location_tab"
                 app:layout_constraintTop_toBottomOf="@+id/act_location_tab" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/act_location_rv"
-                android:layout_width="match_parent"
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/act_location_rv"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="170dp"-->
+<!--                android:layout_marginHorizontal="19dp"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/act_location_tab"-->
+<!--                tools:itemCount="3"-->
+<!--                tools:listitem="@layout/item_location_subway"-->
+<!--                android:nestedScrollingEnabled="false"/>-->
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/act_location_viewpager"
+                android:layout_width="wrap_content"
                 android:layout_height="170dp"
-                android:layout_marginHorizontal="19dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/act_location_tab"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_location_subway" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                app:layout_constraintBottom_toTopOf="@+id/act_location_text"/>
 
             <TextView
+                android:id="@+id/act_location_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -269,8 +287,8 @@
                 android:text="이외의 역은 검색창을 이용해주세요"
                 android:textColor="@color/brownish_grey"
                 android:textSize="11sp"
-                app:layout_constraintEnd_toEndOf="@+id/act_location_rv"
-                app:layout_constraintTop_toBottomOf="@+id/act_location_rv" />
+                app:layout_constraintEnd_toEndOf="@+id/act_location_viewpager"
+                app:layout_constraintTop_toBottomOf="@+id/act_location_viewpager" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/act_locatin_bar"
@@ -279,7 +297,7 @@
                 android:layout_marginHorizontal="17dp"
                 android:layout_marginTop="45dp"
                 android:background="@color/white_four"
-                app:layout_constraintTop_toBottomOf="@id/act_location_rv" />
+                app:layout_constraintTop_toBottomOf="@id/act_location_viewpager" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/act_location_const2"

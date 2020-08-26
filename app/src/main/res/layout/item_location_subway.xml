@@ -7,11 +7,13 @@
 
     <TextView
         android:id="@+id/item_location_subway"
-        android:layout_width="wrap_content"
+        android:layout_width="57dp"
         android:layout_height="wrap_content"
+        android:paddingVertical="7dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="18dp"
+        android:textAlignment="center"
         android:background="@drawable/sel_sort_bg"
         android:fontFamily="@font/kopubworld_dotum_medium"
         android:lineSpacingExtra="6sp"
