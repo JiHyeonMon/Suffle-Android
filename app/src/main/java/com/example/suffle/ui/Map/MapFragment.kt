@@ -51,9 +51,9 @@ class MapFragment : Fragment() {
         personDatas.clear()
 
         //지도 띄우기
-        val mapView = MapView(activity)
-        val mapViewContainer = map_view as ViewGroup
-        mapViewContainer.addView(mapView)
+//        val mapView = MapView(activity)
+//        val mapViewContainer = map_view as ViewGroup
+//        mapViewContainer.addView(mapView)
 
         //Adapter Initialization
         mapPersonAdapter = MapPersonAdapter(view.context,
@@ -65,7 +65,7 @@ class MapFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    setMarker(mapView, personDatas[position].txt_personName, markerData)
+//                    setMarker(mapView, personDatas[position].txt_personName, markerData)
                 }
 
             })

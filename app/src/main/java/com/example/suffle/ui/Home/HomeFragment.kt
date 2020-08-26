@@ -251,14 +251,15 @@ class HomeFragment : Fragment() {
                 if(!recommand){    //선택
                     list.add("bottom_sheet_sequence_img_recommand")
                     recommand = true
+                    bottom_sheet_sequence_img_recommand.setImageResource(img[list.size-1])
                     bottom_sheet_sequence_img_recommand.visibility = View.VISIBLE
                     bottom_sheet_sequence_recommand.isSelected = true
-                    bottom_sheet_sequence_img_recommand.setImageResource(img[list.size-1])
                 }else{  //선택 해제시
                     recommand = false
                     list.remove("bottom_sheet_sequence_img_recommand")
                     bottom_sheet_sequence_recommand.isSelected = false
                     bottom_sheet_sequence_img_recommand.visibility = View.INVISIBLE
+                    delete()
                 }
             }
 
@@ -266,14 +267,15 @@ class HomeFragment : Fragment() {
                 if(!distance){    //선택
                     list.add("bottom_sheet_sequence_img_distance")
                     distance = true
+                    bottom_sheet_sequence_img_distance.setImageResource(img[list.size-1])
                     bottom_sheet_sequence_img_distance.visibility = View.VISIBLE
                     bottom_sheet_sequence_distance.isSelected = true
-                    bottom_sheet_sequence_img_distance.setImageResource(img[list.size-1])
                 }else{  //선택 해제시
                     distance = false
                     list.remove("bottom_sheet_sequence_img_distance")
                     bottom_sheet_sequence_distance.isSelected = false
                     bottom_sheet_sequence_img_distance.visibility = View.INVISIBLE
+                    delete()
                 }
             }
 
@@ -281,14 +283,15 @@ class HomeFragment : Fragment() {
                 if(!review){    //선택
                     list.add("bottom_sheet_sequence_img_review")
                     review = true
+                    bottom_sheet_sequence_img_review.setImageResource(img[list.size-1])
                     bottom_sheet_sequence_img_review.visibility = View.VISIBLE
                     bottom_sheet_sequence_review.isSelected = true
-                    bottom_sheet_sequence_img_review.setImageResource(img[list.size-1])
                 }else{  //선택 해제시
                     review = false
                     list.remove("bottom_sheet_sequence_img_review")
                     bottom_sheet_sequence_review.isSelected = false
                     bottom_sheet_sequence_img_review.visibility = View.INVISIBLE
+                    delete()
                 }
             }
 
@@ -296,14 +299,15 @@ class HomeFragment : Fragment() {
                 if(!wishlist){    //선택
                     list.add("bottom_sheet_sequence_img_wishlist")
                     wishlist = true
+                    bottom_sheet_sequence_img_wishlist.setImageResource(img[list.size-1])
                     bottom_sheet_sequence_img_wishlist.visibility = View.VISIBLE
                     bottom_sheet_sequence_wishlist.isSelected = true
-                    bottom_sheet_sequence_img_wishlist.setImageResource(img[list.size-1])
                 }else{  //선택 해제시
                     wishlist = false
                     list.remove("bottom_sheet_sequence_img_wishlist")
                     bottom_sheet_sequence_wishlist.isSelected = false
                     bottom_sheet_sequence_img_wishlist.visibility = View.INVISIBLE
+                    delete()
                 }
             }
         }
@@ -525,13 +529,16 @@ class HomeFragment : Fragment() {
 //        })
         view.startAnimation (animate)
     }
-//
-//    private fun delete(){
-//        for(i in 0 until list.size){
-//            if(recommand){
-//                bottom_sheet_sequence_img_recommand.setImageResource(img[])
-//            }
-//        }
-//    }
+
+    private fun delete(){
+        for(i in 0 until list.size){
+            when(list[i]){
+                "bottom_sheet_sequence_img_recommand"->{bottom_sheet_sequence_img_recommand.setImageResource(img[i])}
+                "bottom_sheet_sequence_img_distance"->{bottom_sheet_sequence_img_distance.setImageResource(img[i])}
+                "bottom_sheet_sequence_img_review"->{bottom_sheet_sequence_img_review.setImageResource(img[i])}
+                "bottom_sheet_sequence_img_wishlist"->{bottom_sheet_sequence_img_wishlist.setImageResource(img[i])}
+            }
+        }
+    }
 
 }
