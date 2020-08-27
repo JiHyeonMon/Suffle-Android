@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bottom_sheet_sequence"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/bottom_sheet_sequence_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_food_const0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/bottom_sheet_sequence_btn_apply"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/kopubworld_dotum_bold"
+            android:lineSpacingExtra="6sp"
+            android:text="적용"
+            android:textAlignment="textEnd"
+            android:textColor="@color/faded_orange"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_sequence_recommand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/sel_sort_bg"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="추천순"
+            android:textColor="@drawable/sel_text_color"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/bottom_sheet_sequence_distance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_sequence_btn_apply" />
+
+        <ImageView
+            android:id="@+id/bottom_sheet_sequence_img_recommand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sequence1"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_sequence_recommand"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_recommand"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_recommand"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_recommand" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_sequence_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_sort_bg"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="거리순"
+            android:textColor="@drawable/sel_text_color"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/bottom_sheet_sequence_review"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_recommand"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_recommand" />
+
+        <ImageView
+            android:id="@+id/bottom_sheet_sequence_img_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sequence2"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_sequence_distance"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_distance"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_distance"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_distance" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_sequence_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_sort_bg"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="리뷰순"
+            android:textColor="@drawable/sel_text_color"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_distance"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_distance" />
+
+        <ImageView
+            android:id="@+id/bottom_sheet_sequence_img_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sequence3"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_sequence_review"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_review"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_review"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_review" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_sequence_wishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_sort_bg"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="위시리스트순"
+            android:textColor="@drawable/sel_text_color"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_review"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_review" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="11dp"
+            android:fontFamily="@font/kopubworld_dotum_light"
+            android:lineSpacingExtra="3sp"
+            android:text="다중 선택 가능"
+            android:textColor="@color/brownish_grey"
+            android:textSize="7sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_sequence_wishlist" />
+
+        <ImageView
+            android:id="@+id/bottom_sheet_sequence_img_wishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sequence4"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintStart_toEndOf="@+id/bottom_sheet_sequence_wishlist"
+            app:layout_constraintTop_toTopOf="@+id/bottom_sheet_sequence_wishlist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

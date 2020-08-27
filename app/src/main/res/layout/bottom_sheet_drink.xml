@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:id="@+id/bottom_sheet_drink"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/bottom_sheet_drink_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_food_const0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_round"
+        android:layout_weight="0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_drink_const1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/bottom_sheet_drink_btn_apply"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="17dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="적용"
+                android:textAlignment="textEnd"
+                android:textColor="@color/faded_orange"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/bottom_sheet_drink_txt_kinds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="술 종류"
+                android:textColor="@color/brownish_grey"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_drink_linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_drink_txt_kinds">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="포차"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="펍"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="맥주"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="와인"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="칵테일"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="막걸리"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="과일술"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="17dp"
+                android:background="#f9f9f9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_drink_const2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_drink_const1">
+
+            <TextView
+                android:id="@+id/bottom_sheet_drink_txt_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="테마"
+                android:textColor="@color/brownish_grey"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_drink_linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_drink_txt_theme">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="시끄러운"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="조용한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="안주맛집"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="헌팅술집"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="미팅하기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_drink_linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_drink_linear2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="소개팅하기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="회식하기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="인스타에서 핫한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="17dp"
+                android:background="#f9f9f9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_drink_linear3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_drink_const3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_drink_const2">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="마감시간"
+                android:textColor="@color/brownish_grey"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/bottom_sheet_drink_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:layout_marginBottom="35dp"
+                android:max="5"
+                android:progress="3"
+                android:progressDrawable="@drawable/seekbar_background"
+                android:thumb="@drawable/seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bottom_sheet_cafe"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/bottom_sheet_cafe_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_food_const0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="@drawable/bg_white_round">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_cafe_const1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/bottom_sheet_cafe_btn_apply"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="17dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="적용"
+                android:textAlignment="textEnd"
+                android:textColor="@color/faded_orange"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/bottom_sheet_cafe_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:lineSpacingExtra="6sp"
+                android:text="테마"
+                android:textColor="@color/brownish_grey"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_cafe_linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_cafe_theme">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="조용한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="떠들기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="공부하기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="회의하기 좋은"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="베이커리 맛집"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_cafe_linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_cafe_linear1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="디저트 종류가 다양한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="음료 종류가 다양한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="사진이 잘 나오는"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet_cafe_linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_cafe_linear2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="인스타에서 핫한"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_white_four_round"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:text="24시간 영업"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
