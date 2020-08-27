@@ -82,7 +82,20 @@ class MapFragment : Fragment() {
                 override fun onClickItem(position: Int) {
                     Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
                 }
-            })
+            },
+        object : MapPlaceViewHolder.onClickBookmark{
+            override fun onClickBookmark(position: Int) {
+                if(placeDatas[position].img_bookmark){
+                    placeDatas[position].img_bookmark = false
+                    mapPlaceAdapter.notifyItemChanged(position)
+                }else{
+                    placeDatas[position].img_bookmark = true
+                    mapPlaceAdapter.notifyItemChanged(position)
+
+                }
+            }
+
+        })
 
         //Attach adapter to Recyclerview
         bottom_sheet_rv_person.adapter = mapPersonAdapter

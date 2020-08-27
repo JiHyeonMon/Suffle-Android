@@ -14,6 +14,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.suffle.R
 import com.example.suffle.data.MarkerData
 import com.example.suffle.data.PersonListData
+import kotlinx.android.synthetic.main.item_frag_map_circle.view.*
 
 
 class MapPersonAdapter (private val context: Context, private val clickListener: MapPersonViewHolder.onClickListener): RecyclerView.Adapter<MapPersonViewHolder>(){
@@ -49,9 +50,12 @@ class MapPersonViewHolder(itemview: View, private val clickListener: onClickList
     }
 
     init {
+
         itemView.setOnClickListener {
             clickListener.onClickItem(adapterPosition)
+            itemview.item_frag_map_circle_img.isSelected = !itemview.item_frag_map_circle_img.isSelected
         }
+
     }
 
     interface onClickListener {
