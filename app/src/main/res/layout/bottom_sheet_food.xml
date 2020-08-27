@@ -79,7 +79,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="한식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -91,7 +91,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="중식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -103,7 +103,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="일식/회"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -115,7 +115,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="양식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -127,7 +127,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="아시안식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -139,7 +139,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="분식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -151,7 +151,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="치킨"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -162,7 +162,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="피자"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -185,7 +185,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="고기"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -197,7 +197,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="찜/탕"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -209,7 +209,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="패스트푸드"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -262,7 +262,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="데이트하기 좋은"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -274,7 +274,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="혼밥하기 좋은"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -286,7 +286,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="메운맛 고수"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -298,7 +298,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="티비출연"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -320,7 +320,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="소개팅하기 좋은"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -332,7 +332,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="해장하기 좋은"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -344,7 +344,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="해비한 식사"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -356,7 +356,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="가벼운 식사"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -378,7 +378,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="뷔페"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -390,7 +390,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="집밥이 그리워"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -402,7 +402,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="인스타에서 핫한"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -414,7 +414,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="어른을 모시고"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -436,7 +436,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="루프탑"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -448,7 +448,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="24시간 영업"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -460,7 +460,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="가족외식"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
 
                 <TextView
@@ -472,7 +472,7 @@
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:lineSpacingExtra="6sp"
                     android:text="회식하기 좋은"
-                    android:textColor="@drawable/sel_text_color"
+                    android:textColor="@drawable/sel_text_color_brownish_grey"
                     android:textSize="10sp" />
             </LinearLayout>
 

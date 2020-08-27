@@ -43,6 +43,14 @@ class MapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        frag_map_pen_circle.isSelected = false
+        frag_map_thumb_up_circle.isSelected = false
+        frag_map_thumb_down_circle.isSelected = false
+        frag_map_pen.isSelected = false
+        frag_map_thumb_up.isSelected = false
+        frag_map_thumb_down.isSelected = false
+
+
         //setting sliding panel
         map_sliding_layout.setDragView(R.layout.bottom_sheet_map)
         map_sliding_layout.isNestedScrollingEnabled = true
@@ -108,6 +116,21 @@ class MapFragment : Fragment() {
                 val intent = Intent(context, CreateGroupActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        frag_map_pen_circle.setOnClickListener {
+            frag_map_pen_circle.isSelected = !frag_map_pen_circle.isSelected
+            frag_map_pen.isSelected = !frag_map_pen.isSelected
+        }
+
+        frag_map_thumb_up_circle.setOnClickListener {
+            frag_map_thumb_up_circle.isSelected = !frag_map_thumb_up_circle.isSelected
+            frag_map_thumb_up.isSelected = !frag_map_thumb_up.isSelected
+        }
+
+        frag_map_thumb_down_circle.setOnClickListener {
+            frag_map_thumb_down_circle.isSelected = !frag_map_thumb_down_circle.isSelected
+            frag_map_thumb_down.isSelected = !frag_map_thumb_down.isSelected
         }
 
         //default Data Setting

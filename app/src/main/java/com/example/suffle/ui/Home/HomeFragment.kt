@@ -122,8 +122,6 @@ class HomeFragment : Fragment() {
                 }
             }, object :PlaceLinearViewHolder.onClickBookmark{
             override fun onClickBookmark(position: Int) {
-                Toast.makeText(context, "즐겨찾기", Toast.LENGTH_SHORT).show()
-
                 if(placeDatas[position].img_bookmark){
                     placeDatas[position].img_bookmark = false
                     placeLinearAdapter.notifyItemChanged(position)
