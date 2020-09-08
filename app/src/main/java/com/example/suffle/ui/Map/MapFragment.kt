@@ -72,7 +72,6 @@ class MapFragment : Fragment() {
                         personDatas[position].txt_personName,
                         Toast.LENGTH_SHORT
                     ).show()
-
 //                    setMarker(mapView, personDatas[position].txt_personName, markerData)
                 }
 
@@ -285,7 +284,7 @@ class MapFragment : Fragment() {
         val array = ArrayList<MapPOIItem>()
         Log.e("1", array.toString())
 
-        //marker initailization
+        //marker initialization
         for (i in 0 until array.size) {
             mapView.removePOIItem(array[i])
             array[i].mapPoint = null
@@ -310,8 +309,7 @@ class MapFragment : Fragment() {
 
         //마커 띄우기
         array.clear()
-        Log.e("4", array.toString())
-
+1
 
         for (i in 0 until personMarkerData.size) {
 

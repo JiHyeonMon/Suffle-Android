@@ -1,6 +1,5 @@
 package com.example.suffle.ui.Home.location
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +23,6 @@ class LocationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_location)
 
 
-
         act_location_title.text = intent.getStringExtra("presentLocation")
 
         act_search_btn_back.setOnClickListener {
@@ -32,7 +30,6 @@ class LocationActivity : AppCompatActivity() {
         }
 
         act_location_btn_apply.setOnClickListener {
-            setResult(200, Intent().putExtra("station", "태릉입구"))
             finish()
         }
 

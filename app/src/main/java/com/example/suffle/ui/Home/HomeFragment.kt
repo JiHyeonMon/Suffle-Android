@@ -32,10 +32,6 @@ import kotlinx.android.synthetic.main.fragment_home_content.*
 
 class HomeFragment : Fragment() {
 
-    var food = false
-    var cafe = false
-    var drink = false
-
     val placeDatas = mutableListOf<PlaceData>()
     val recommandDatas = mutableListOf<MainRecommandData>()
     var tmp = 0
@@ -55,6 +51,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -71,7 +68,6 @@ class HomeFragment : Fragment() {
             intent.putExtra("presentLocation", frag_home_text_location.text)
             startActivityForResult(intent,200)
         }
-
 
         frag_home_btn_search.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
@@ -175,7 +171,6 @@ class HomeFragment : Fragment() {
                 frag_home_rv_place.adapter = placeGridAdapter
                 loadPlaceDatas()
             }
-
         }
 
         //filter
@@ -185,10 +180,6 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-            if (food) { slideDown(bottom_sheet_food) }
-            if (cafe) { slideDown(bottom_sheet_cafe) }
-            if (drink) { slideDown(bottom_sheet_drink) }
-            food = false; cafe = false; drink = false
         }
 
         frag_home_btn_filter_food.setOnClickListener {
@@ -198,21 +189,10 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
             bottom_sheet_food_view.setOnClickListener {
-                slideDown(bottom_sheet_food); food = false
-            }
-            if (cafe) {
-                cafe = false; slideDown(bottom_sheet_cafe)
-            }
-            if (drink) {
-                drink = false; slideDown(bottom_sheet_drink)
-            }
-            food = if (!food) {
-                slideUp(bottom_sheet_food); true
-            } else {
-                slideDown(bottom_sheet_food); false
+                slideDown(bottom_sheet_food)
             }
             bottom_sheet_food_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_food); food = false
+                slideDown(bottom_sheet_food)
             }
 
         }
@@ -224,21 +204,10 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
             bottom_sheet_cafe_view.setOnClickListener {
-                slideDown(bottom_sheet_cafe); cafe = false
-            }
-            if (food) {
-                food = false; slideDown(bottom_sheet_food)
-            }
-            if (drink) {
-                drink = false; slideDown(bottom_sheet_drink)
-            }
-            cafe = if (!cafe) {
-                slideUp(bottom_sheet_cafe); true
-            } else {
-                slideDown(bottom_sheet_cafe); false
+                slideDown(bottom_sheet_cafe)
             }
             bottom_sheet_cafe_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_cafe); cafe = false
+                slideDown(bottom_sheet_cafe)
             }
         }
 
@@ -249,35 +218,26 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_drink_bar.visibility = View.VISIBLE
 
             bottom_sheet_drink_view.setOnClickListener {
-                slideDown(bottom_sheet_drink); drink = false
+                slideDown(bottom_sheet_drink)
             }
 
-            if (cafe) {
-                cafe = false; slideDown(bottom_sheet_cafe)
-            }
-            if (food) {
-                drink = false; slideDown(bottom_sheet_food)
-            }
-            drink = if (!drink) {
-                slideUp(bottom_sheet_drink); true
-            } else {
-                slideDown(bottom_sheet_drink); false
-            }
             bottom_sheet_drink_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_drink); drink = false
+                slideDown(bottom_sheet_drink)
             }
         }
 
-        frag_home.setOnClickListener {
-            Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
-            if (food) {
-                food = false; slideDown(bottom_sheet_food)
+        //filter
+        frag_home_btn_filter.setOnClickListener {
+            if(frag_home_btn_filter_all_bar.visibility == View.VISIBLE){
             }
-            if (cafe) {
-                cafe = false; slideDown(bottom_sheet_cafe)
+            if(frag_home_btn_filter_food_bar.visibility == View.VISIBLE){
+                slideUp(bottom_sheet_food)
             }
-            if (drink) {
-                drink = false; slideDown(bottom_sheet_drink)
+            if(frag_home_btn_filter_cafe_bar.visibility == View.VISIBLE){
+                slideUp(bottom_sheet_cafe)
+            }
+            if(frag_home_btn_filter_drink_bar.visibility == View.VISIBLE){
+                slideUp(bottom_sheet_drink)
             }
         }
 
@@ -553,7 +513,7 @@ class HomeFragment : Fragment() {
             0F
         ) // toYDelta
         animate.duration = 500
-        animate.fillAfter = true
+        animate.fillAfter = false
         view.startAnimation(animate)
     }
 
@@ -566,13 +526,15 @@ class HomeFragment : Fragment() {
             view.height.toFloat()
         ) // toYDelta
         animate.duration = 500
-        animate.fillAfter = true
+        animate.fillAfter = false
 //        animate.setListener(object : AnimatorListenerAdapter() {
 //            override fun onAnimationEnd(animation: Animator) {
 //                loadingView.visibility = View.GONE
 //            }
 //        })
         view.startAnimation (animate)
+        view.visibility = View.INVISIBLE
+
     }
 
     private fun delete(){
@@ -586,12 +548,5 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (data != null) {
-            frag_home_text_location.text = data.getStringExtra("station")
-        }
-    }
 
 }
