@@ -32,6 +32,12 @@ import kotlinx.android.synthetic.main.fragment_home_content.*
 
 class HomeFragment : Fragment() {
 
+    var all = false
+    var food = false
+    var cafe = false
+    var drink = false
+    lateinit var check: View
+
     val placeDatas = mutableListOf<PlaceData>()
     val recommandDatas = mutableListOf<MainRecommandData>()
     var tmp = 0
@@ -51,7 +57,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -68,6 +73,7 @@ class HomeFragment : Fragment() {
             intent.putExtra("presentLocation", frag_home_text_location.text)
             startActivityForResult(intent,200)
         }
+
 
         frag_home_btn_search.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
@@ -118,6 +124,8 @@ class HomeFragment : Fragment() {
                 }
             }, object :PlaceLinearViewHolder.onClickBookmark{
             override fun onClickBookmark(position: Int) {
+                Toast.makeText(context, "즐겨찾기", Toast.LENGTH_SHORT).show()
+
                 if(placeDatas[position].img_bookmark){
                     placeDatas[position].img_bookmark = false
                     placeLinearAdapter.notifyItemChanged(position)
@@ -152,7 +160,7 @@ class HomeFragment : Fragment() {
         frag_home_rv_place.adapter = placeLinearAdapter
         frag_home_rv_place.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        //chage layout
+        //change layout
         frag_home_btn_layout.setOnClickListener {
             if (tmp == 0) {
                 tmp = 1
@@ -171,6 +179,7 @@ class HomeFragment : Fragment() {
                 frag_home_rv_place.adapter = placeGridAdapter
                 loadPlaceDatas()
             }
+
         }
 
         //filter
@@ -180,6 +189,8 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
+            all = !all
+            food = false; cafe = false; drink = false
         }
 
         frag_home_btn_filter_food.setOnClickListener {
@@ -188,12 +199,10 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-            bottom_sheet_food_view.setOnClickListener {
-                slideDown(bottom_sheet_food)
-            }
-            bottom_sheet_food_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_food)
-            }
+            food = !food
+            all = false; cafe = false; drink = false
+            check = bottom_sheet_food
+
 
         }
 
@@ -203,12 +212,9 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.VISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.INVISIBLE
 
-            bottom_sheet_cafe_view.setOnClickListener {
-                slideDown(bottom_sheet_cafe)
-            }
-            bottom_sheet_cafe_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_cafe)
-            }
+            cafe = !cafe
+            all = false; cafe = false; drink = false
+            check = bottom_sheet_cafe
         }
 
         frag_home_btn_filter_drink.setOnClickListener {
@@ -217,27 +223,48 @@ class HomeFragment : Fragment() {
             frag_home_btn_filter_cafe_bar.visibility = View.INVISIBLE
             frag_home_btn_filter_drink_bar.visibility = View.VISIBLE
 
+
+            drink = !drink
+            food = false; cafe = false; drink = false
+            check = bottom_sheet_drink
+
+        }
+
+        frag_home_btn_filter.setOnClickListener {
+            slideUp(check)
+
+            bottom_sheet_food_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_food)
+            }
+            bottom_sheet_cafe_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_cafe)
+            }
+            bottom_sheet_drink_btn_apply.setOnClickListener {
+                slideDown(bottom_sheet_drink)
+            }
+
+            bottom_sheet_food_view.setOnClickListener {
+                slideDown(bottom_sheet_food)
+            }
+            bottom_sheet_cafe_view.setOnClickListener {
+                slideDown(bottom_sheet_cafe)
+            }
             bottom_sheet_drink_view.setOnClickListener {
                 slideDown(bottom_sheet_drink)
             }
 
-            bottom_sheet_drink_btn_apply.setOnClickListener {
-                slideDown(bottom_sheet_drink)
-            }
         }
 
-        //filter
-        frag_home_btn_filter.setOnClickListener {
-            if(frag_home_btn_filter_all_bar.visibility == View.VISIBLE){
+        frag_home.setOnClickListener {
+            Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
+            if (food) {
+                food = false; slideDown(bottom_sheet_food)
             }
-            if(frag_home_btn_filter_food_bar.visibility == View.VISIBLE){
-                slideUp(bottom_sheet_food)
+            if (cafe) {
+                cafe = false; slideDown(bottom_sheet_cafe)
             }
-            if(frag_home_btn_filter_cafe_bar.visibility == View.VISIBLE){
-                slideUp(bottom_sheet_cafe)
-            }
-            if(frag_home_btn_filter_drink_bar.visibility == View.VISIBLE){
-                slideUp(bottom_sheet_drink)
+            if (drink) {
+                drink = false; slideDown(bottom_sheet_drink)
             }
         }
 
@@ -527,14 +554,9 @@ class HomeFragment : Fragment() {
         ) // toYDelta
         animate.duration = 500
         animate.fillAfter = false
-//        animate.setListener(object : AnimatorListenerAdapter() {
-//            override fun onAnimationEnd(animation: Animator) {
-//                loadingView.visibility = View.GONE
-//            }
-//        })
         view.startAnimation (animate)
-        view.visibility = View.INVISIBLE
 
+        view.visibility = View.INVISIBLE
     }
 
     private fun delete(){

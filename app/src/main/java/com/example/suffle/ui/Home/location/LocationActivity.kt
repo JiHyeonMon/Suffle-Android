@@ -1,7 +1,10 @@
 package com.example.suffle.ui.Home.location
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -13,11 +16,10 @@ import kotlinx.android.synthetic.main.activity_location.*
 
 class LocationActivity : AppCompatActivity() {
 
-    //    val subwayData = mutableListOf<SubwayData>()
-
     // 리스트를 생성한다.
     val list = ArrayList<String>()
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
@@ -30,6 +32,7 @@ class LocationActivity : AppCompatActivity() {
         }
 
         act_location_btn_apply.setOnClickListener {
+            setResult(200, Intent().putExtra("station", "태릉입구"))
             finish()
         }
 
@@ -44,17 +47,19 @@ class LocationActivity : AppCompatActivity() {
                 android.R.layout.simple_dropdown_item_1line, list
             )
         )
+
+
     }
 
     private fun settingList() {
-        list.add("apple")
-        list.add("ant")
-        list.add("aunt")
-        list.add("alice")
-        list.add("a")
-        list.add("크리aa스탈")
-        list.add("aaa")
-        list.add("손dd나은")
+        list.add("강남")
+        list.add("태릉입구")
+        list.add("화랑대")
+        list.add("건대입구")
+        list.add("노원")
+        list.add("봉화산")
+        list.add("고속버스터미")
+        list.add("홍대입구")
         list.add("남ssaa주혁")
     }
 

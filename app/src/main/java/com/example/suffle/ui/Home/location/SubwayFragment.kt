@@ -63,9 +63,6 @@ class SubwayFragment : Fragment() {
         SubwayData("2", "홍대입구"),
         SubwayData("2", "홍대입구"),
         SubwayData("2", "홍대입구"),
-        SubwayData("2", "홍대입구"),
-        SubwayData("2", "홍대입구"),
-        SubwayData("2", "홍대입구"),
         SubwayData("2", "홍대입구")
     )
 
