@@ -9,13 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.suffle.R
-import com.example.suffle.data.PersonListData
+import com.example.suffle.data.NormalPersonData
 import kotlinx.android.synthetic.main.item_act_create_friend.view.*
 
 
 class FriendAdapter (private val context: Context, private val clickListener: FriendViewHolder.onClickListener): RecyclerView.Adapter<FriendViewHolder>(){
 
-    var datas = mutableListOf<PersonListData>()
+    var datas = mutableListOf<NormalPersonData>()
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
@@ -38,9 +38,9 @@ class FriendViewHolder(itemview: View, val clickListener: onClickListener) : Rec
     val img_person = itemView.findViewById<ImageView>(R.id.item_act_create_friend_img)
     val txt_personName = itemView.findViewById<TextView>(R.id.item_act_create_friend_txt_person)
 
-    fun bind(personListData: PersonListData) {
-        Glide.with(itemView).load(personListData.img_person).circleCrop().into(img_person);
-        txt_personName.text = personListData.txt_personName
+    fun bind(normalPersonData: NormalPersonData) {
+        Glide.with(itemView).load(normalPersonData.img_person).circleCrop().into(img_person);
+        txt_personName.text = normalPersonData.txt_personName
     }
 
     init {

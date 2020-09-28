@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
-import com.example.suffle.data.PersonListData
+import com.example.suffle.data.MapPersonData
+import com.example.suffle.data.NormalPersonData
 import kotlinx.android.synthetic.main.activity_create_friend.*
 
 class CreateFriendActivity : AppCompatActivity() {
 
     lateinit var friendAdapter: FriendAdapter
-    val friendDatas = mutableListOf<PersonListData>()
+    val friendDatas = mutableListOf<NormalPersonData>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,43 +47,43 @@ class CreateFriendActivity : AppCompatActivity() {
     private fun loadDatas() {
         friendDatas.apply {
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍1"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍2"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍3"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍4"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍4"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍4"
                 )
             )
             add(
-                PersonListData(
+                NormalPersonData(
                     img_person = "https://newsimg.sedaily.com/2018/02/13/1RVOS58842_1.jpg",
                     txt_personName = "멍4"
                 )

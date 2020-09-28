@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.suffle.R
-import com.example.suffle.data.PersonListData
+import com.example.suffle.data.NormalPersonData
 import kotlinx.android.synthetic.main.item_alert.view.*
 
 class AlertAdpater(
@@ -17,7 +17,7 @@ class AlertAdpater(
     private val deleteClickListener: AlertViewHolder.onDeleteClickListener,
     private val allowClickListener: AlertViewHolder.onAllowClickListener
 ): RecyclerView.Adapter<AlertViewHolder>(){
-    var datas = mutableListOf<PersonListData>()
+    var datas = mutableListOf<NormalPersonData>()
     var previousPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlertViewHolder {
@@ -44,9 +44,9 @@ class AlertViewHolder(
     val item_alert_img = itemview.findViewById<ImageView>(R.id.item_alert_img)
     val item_alert_name = itemview.findViewById<TextView>(R.id.item_alert_name)
 
-    fun bind(personListData: PersonListData){
-        Glide.with(itemView).load(personListData.img_person).into(item_alert_img)
-        item_alert_name.text = personListData.txt_personName
+    fun bind(normalPersonData: NormalPersonData){
+        Glide.with(itemView).load(normalPersonData.img_person).into(item_alert_img)
+        item_alert_name.text = normalPersonData.txt_personName
     }
 
     init {
