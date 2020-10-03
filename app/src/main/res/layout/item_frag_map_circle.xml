@@ -7,10 +7,11 @@
 
     <ImageView
         android:id="@+id/item_frag_map_circle_img"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
         android:src="@drawable/kakao_circle1"
-        android:background="@drawable/bg_circle_white"
+        android:background="@drawable/sel_circle_strock"
+        android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

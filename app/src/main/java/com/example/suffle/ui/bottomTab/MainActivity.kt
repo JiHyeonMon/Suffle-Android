@@ -11,33 +11,35 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setAdapter()
         setTabBar()
+
     }
 
-    private fun setTabBar(){
+    private fun setTabBar() {
         val bottomTabBar: View = LayoutInflater.from(this).inflate(R.layout.tab_layout, null)
         act_main_bottomTab.run {
 
             addTab(
-                    this.newTab()
-                            .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_home) as ConstraintLayout)
+                this.newTab()
+                    .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_home) as ConstraintLayout)
             )
             addTab(
-                    this.newTab()
-                            .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_map) as ConstraintLayout)
+                this.newTab()
+                    .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_map) as ConstraintLayout)
             )
             addTab(
-                    this.newTab()
-                            .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_feed) as ConstraintLayout)
+                this.newTab()
+                    .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_feed) as ConstraintLayout)
             )
             addTab(
-                    this.newTab()
-                            .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_mypage) as ConstraintLayout)
+                this.newTab()
+                    .setCustomView(bottomTabBar.findViewById(R.id.cl_tab_mypage) as ConstraintLayout)
             )
 
             // 인디케이터 없애기
@@ -55,7 +57,11 @@ class MainActivity : AppCompatActivity() {
         act_main_viewpager.offscreenPageLimit = 3
         act_main_viewpager.currentItem = 0
 
-        act_main_viewpager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(act_main_bottomTab))
+        act_main_viewpager.addOnPageChangeListener(
+            TabLayout.TabLayoutOnPageChangeListener(
+                act_main_bottomTab
+            )
+        )
 
         act_main_bottomTab!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
@@ -70,4 +76,6 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+
 }

@@ -7,16 +7,18 @@
     android:background="@color/white"
     tools:context=".ui.Home.search.SearchActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <com.example.suffle.ui.Home.search.search2.NewScrollView
+        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/act_search_const"
@@ -24,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:elevation="3dp"
+                android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -61,7 +64,11 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="30dp"
                 android:background="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_weight="1"
                 app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/act_search_const">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,42 +155,27 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--                <com.google.android.material.tabs.TabLayout-->
+            <!--                    android:id="@+id/header_view"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:visibility="invisible"-->
+            <!--                    app:itemIconTint="@drawable/menu_selector_color"-->
+            <!--                    app:itemTextColor="@drawable/menu_selector_color"-->
+            <!--                    app:tabIndicatorColor="@color/faded_orange"-->
+            <!--                    app:tabIndicatorFullWidth="true"-->
+            <!--                    app:tabIndicatorGravity="top" />-->
 
-            <androidx.cardview.widget.CardView
+
+            <com.example.suffle.ui.bottomTab.CustomViewPager
+                android:id="@+id/header_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="25dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/act_search_card">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/act_search_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center_horizontal"
-                        android:lineSpacingExtra="4sp"
-                        android:text="추천 검색어"
-                        android:textColor="@color/faded_orange"
-                        android:textSize="9sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/act_search_rv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        app:layout_constraintTop_toBottomOf="@+id/act_search_text"
-                        tools:listitem="@layout/item_home_search" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+                android:layout_height="1360dp"
+                android:layout_marginTop="30dp"
+                android:overScrollMode="always"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </com.example.suffle.ui.Home.search.search2.NewScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

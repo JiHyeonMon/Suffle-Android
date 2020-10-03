@@ -6,11 +6,13 @@ import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
 
 class CustomViewPager : ViewPager {
-    var enables = false
+    private var enables = false
+    private var isPagingEnabled = true
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet)
 
     constructor(context: Context) : super(context)
+
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         if (enables) return super.onInterceptTouchEvent(ev)
@@ -29,6 +31,10 @@ class CustomViewPager : ViewPager {
 
     fun setEnable(enable: Boolean) {
         this.enables = enable
+    }
+
+    fun setPagingEnabled(b: Boolean) {
+        this.isPagingEnabled = b
     }
 
 }

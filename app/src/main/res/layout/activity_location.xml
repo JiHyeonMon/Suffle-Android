@@ -151,6 +151,7 @@
                                     android:layout_gravity="bottom"
                                     android:background="@android:color/transparent"
                                     android:completionThreshold="1"
+                                    android:maxLines="1"
                                     android:fontFamily="@font/kopubworld_dotum_medium"
                                     android:hint="지하철 역을 검색해 보세요"
                                     android:textColor="@color/brownish_grey"
@@ -270,7 +271,7 @@
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/act_location_viewpager"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="170dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -282,6 +283,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
                 android:fontFamily="@font/kopubworld_dotum_light"
                 android:lineSpacingExtra="6sp"
                 android:text="이외의 역은 검색창을 이용해주세요"
@@ -313,14 +315,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="52dp"
                     android:max="5"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:layout_marginHorizontal="33.3dp"
                     android:progress="3"
                     android:progressDrawable="@drawable/seekbar_background"
                     android:thumb="@drawable/seekbar_thumb"
-
+                    android:tickMark="@drawable/seekbar_circle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button

@@ -16,7 +16,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/frag_map_thumb_up_circle"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frag_map_circle_selected" />
+        app:srcCompat="@drawable/sel_bg_circle_stroke" />
 
     <ImageView
         android:id="@+id/frag_map_pen"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="@+id/frag_map_pen_circle"
         app:layout_constraintStart_toStartOf="@+id/frag_map_pen_circle"
         app:layout_constraintTop_toTopOf="@+id/frag_map_pen_circle"
-        app:srcCompat="@drawable/icon_pen_selected" />
+        app:srcCompat="@drawable/sel_map_btn_pen" />
 
     <ImageView
         android:id="@+id/frag_map_thumb_up_circle"
@@ -35,7 +35,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/frag_map_thumb_down_circle"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frag_map_circle_unselected" />
+        app:srcCompat="@drawable/sel_bg_circle_stroke" />
 
     <ImageView
         android:id="@+id/frag_map_thumb_up"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="@+id/frag_map_thumb_up_circle"
         app:layout_constraintStart_toStartOf="@+id/frag_map_thumb_up_circle"
         app:layout_constraintTop_toTopOf="@+id/frag_map_thumb_up_circle"
-        app:srcCompat="@drawable/ic_thumb_up_24px" />
+        app:srcCompat="@drawable/sel_map_btn_thumb_up" />
 
     <ImageView
         android:id="@+id/frag_map_thumb_down_circle"
@@ -54,7 +54,7 @@
         android:layout_marginEnd="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frag_map_circle_unselected" />
+        app:srcCompat="@drawable/sel_bg_circle_stroke" />
 
     <ImageView
         android:id="@+id/frag_map_thumb_down"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="@+id/frag_map_thumb_down_circle"
         app:layout_constraintStart_toStartOf="@+id/frag_map_thumb_down_circle"
         app:layout_constraintTop_toTopOf="@+id/frag_map_thumb_down_circle"
-        app:srcCompat="@drawable/ic_thumb_down_24px" />
+        app:srcCompat="@drawable/sel_map_btn_thumb_down" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
