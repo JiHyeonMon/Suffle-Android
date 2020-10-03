@@ -1,20 +1,23 @@
 package com.example.suffle.ui.Map
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suffle.R
-import com.example.suffle.data.MarkerData
 import com.example.suffle.data.MapPersonData
+import com.example.suffle.data.MarkerData
 import com.example.suffle.data.PlaceData
 import kotlinx.android.synthetic.main.bottom_sheet_map.*
 import kotlinx.android.synthetic.main.fragment_map.*
+import net.daum.mf.map.api.CalloutBalloonAdapter
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
@@ -30,6 +33,8 @@ class MapFragment : Fragment() {
 
     lateinit var mapPlaceAdapter: MapPlaceAdapter
     lateinit var mapPersonAdapter: MapPersonAdapter
+
+    lateinit var customCalloutBalloonAdapter: CustomCalloutBalloonAdapter
 
     var status = "f"
 
@@ -64,19 +69,17 @@ class MapFragment : Fragment() {
         val mapViewContainer = map_view as ViewGroup
         mapViewContainer.addView(mapView)
 
+
         //Adapter Initialization
         mapPersonAdapter = MapPersonAdapter(view.context,
             object : MapPersonViewHolder.onClickListener {
                 override fun onClickItem(position: Int) {
                     personDatas[position].selected = !personDatas[position].selected
 
-                    Log.e("txt_personName : ", personDatas[position].txt_personName)
-                    Log.e("markerData : ", markerData.toString())
-
-                    if(personDatas[position].selected){
+                    if (personDatas[position].selected) {
                         //선택 안돼있다가 클릭해서 선택했을 때, setMarker호출 후 마커 찍기
                         setMarker(mapView, personDatas[position].txt_personName, markerData)
-                    }else{
+                    } else {
                         //이미 선택 돼 있는거, 선택 취소 했을 때, 마커 지우기
                         deleteMarker(mapView)
                     }
@@ -90,19 +93,24 @@ class MapFragment : Fragment() {
                     Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
                 }
             },
-        object : MapPlaceViewHolder.onClickBookmark{
-            override fun onClickBookmark(position: Int) {
-                if(placeDatas[position].img_bookmark){
-                    placeDatas[position].img_bookmark = false
-                    mapPlaceAdapter.notifyItemChanged(position)
-                }else{
-                    placeDatas[position].img_bookmark = true
-                    mapPlaceAdapter.notifyItemChanged(position)
+            object : MapPlaceViewHolder.onClickBookmark {
+                override fun onClickBookmark(position: Int) {
+                    if (placeDatas[position].img_bookmark) {
+                        placeDatas[position].img_bookmark = false
+                        mapPlaceAdapter.notifyItemChanged(position)
+                    } else {
+                        placeDatas[position].img_bookmark = true
+                        mapPlaceAdapter.notifyItemChanged(position)
 
+                    }
                 }
-            }
 
-        })
+            })
+
+        customCalloutBalloonAdapter = CustomCalloutBalloonAdapter(view.context)
+
+        mapView.setCalloutBalloonAdapter(customCalloutBalloonAdapter)
+
 
         //Attach adapter to Recyclerview
         bottom_sheet_rv_person.adapter = mapPersonAdapter
@@ -129,10 +137,10 @@ class MapFragment : Fragment() {
         }
 
         frag_map_btn_plus.setOnClickListener {
-            if(status == "f"){
+            if (status == "f") {
                 val intent = Intent(context, CreateFriendActivity::class.java)
                 startActivity(intent)
-            }else{
+            } else {
                 val intent = Intent(context, CreateGroupActivity::class.java)
                 startActivity(intent)
             }
@@ -161,34 +169,14 @@ class MapFragment : Fragment() {
 
     private fun setMarker(mapView: MapView, personName: String, markerData: ArrayList<MarkerData>) {
 
-//        val array = ArrayList<MapPOIItem>()
-
-        //marker initialization
-//        for (i in 0 until array.size) {
-//            mapView.removePOIItem(array[i])
-//            array[i].mapPoint = null
-//            array[i].markerType = null
-//
-//            mapView.removeAllPOIItems()
-//
-//        }
-
         personMarkerData.clear()
 
         // set map markders
         for (i in 0 until markerData.size) {
-            Log.e("inside setMarker, markerData: ", markerData[i].toString())
-
             if (personName == markerData[i].personName) {
                 personMarkerData.add(markerData[i])
-                Log.e("add markerData to personMarkerData: ", markerData[i].toString())
-
             }
         }
-
-        //마커 띄우기
-//        array.clear()
-
 
         for (i in 0 until personMarkerData.size) {
 
@@ -203,26 +191,35 @@ class MapFragment : Fragment() {
             poiItem.markerType = MapPOIItem.MarkerType.CustomImage // 마커타입을 커스텀 마커로 지정.
             poiItem.customImageResourceId = R.drawable.ic_map_friend_marker // 마커 이미지.
 
-//            array.add(poiItem)
-
             mapView.addPOIItem(poiItem)
 
         }
 
-//        do {
-//            mapView.removeAllPOIItems()
-//            for( i in 0 until array.size){
-//                mapView.addPOIItem(array[i])
-//            }
-//            break
-//        }while (true)
+    }
+
+    class CustomCalloutBalloonAdapter(context: Context) : CalloutBalloonAdapter {
+        private val mCalloutBalloon: View =
+            LayoutInflater.from(context).inflate(R.layout.custom_callout_balloon, null)
+
+        override fun getCalloutBalloon(poiItem: MapPOIItem): View {
+            mCalloutBalloon.findViewById<ImageView>(R.id.frag_map_img_marker_food)
+                .setImageResource(R.drawable.img_food_sample)
+            mCalloutBalloon.findViewById<TextView>(R.id.frag_map_txt_marker_storeName).text =
+                poiItem.itemName
+            mCalloutBalloon.findViewById<TextView>(R.id.frag_map_txt_marker_content).text = "test"
+
+            return mCalloutBalloon
+        }
+
+        override fun getPressedCalloutBalloon(poiItem: MapPOIItem): View? {
+            return null
+        }
 
     }
 
-    private fun deleteMarker(mapView: MapView){
+    private fun deleteMarker(mapView: MapView) {
         mapView.removeAllPOIItems()
     }
-
 
     private fun loadFriendDatas() {
         personDatas.clear()
